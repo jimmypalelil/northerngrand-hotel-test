@@ -1,0 +1,14 @@
+
+<div class="container month-cards" ng-app="myApp" ng-controller="trialMainController">
+
+    <p class="badge badge-secondary year"><strong><i class="fas fa-calendar-alt"></i> {{year}}</strong></p>
+    <div ng-repeat="month in months">
+        <a class="card" href="#"><span>{[{month|uppercase}]}</span></a>
+    </div>
+
+</div>
+
+<div class="container">
+    <div ng-view></div>
+</div>
+

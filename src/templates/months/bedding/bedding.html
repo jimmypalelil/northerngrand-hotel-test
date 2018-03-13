@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container month-cards" ng-controller="trialController">
+
+    <p class="card year"><strong>2018</strong></p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Months</a>
+        <button class="navbar-toggler navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" ng-repeat="month in beddingMonths">
+                <li class="nav-item">
+                    <a ng-click="month_card(month, '2018')" ng-class="{'cardFocused': month == currentMonth}"  class="btn btn-info card">
+                        <span>{[{month|uppercase}]}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>
+
+<div class="container">
+    <div ng-view class="month-view"></div>
+</div>
+
+
+{% endblock %}

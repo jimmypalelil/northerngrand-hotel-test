@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="{{url_for('static', filename='js/controllers/lostController.js')}}"></script>
+
+<div class="for-teddy" ng-app="myApp" ng-controller="lostController">
+    <div class="container">
+        <span class="lost-title">
+            <img class="lost-image" src="{{url_for('static', filename='images/lost.png')}}"> <h5 class="lost-title-text display-5">   Lost and Found</h5>
+        </span>
+        <hr class="my-4">
+        <span><input ng-model="searchItem" id="search" name="search" placeholder="Search... By room number, item or date"></span>
+        <hr class="my-3">
+        {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
+            <button data-toggle="modal" data-target="#newModal" class="font-weight-bold btn btn-danger"><i class="fas fa-plus"></i> New Item</button>
+        {% endif %}
+        <div class="lost-content">
+            <table class="table table-bordered table-striped lost-table">
+
+                <thead class="thead-inverse">
+                    <tr>
+                        <th class="text-center" ng-click="sortOrder('room_number')">Room # <i ng-show="showRoomUpSort" class="fas fa-sort-up"></i><i ng-show="showRoomDownSort" class="fas fa-sort-down"></i></th>
+                        <th class="text-center" style="width: 70%;">Item Description</th>
+                        <th class="text-center" ng-click="sortOrder('date')">Date <i ng-show="showDateUpSort" class="fas fa-sort-up"></i><i ng-show="showDateDownSort" class="fas fa-sort-down"></i></th>
+                        {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
+                            <th class="text-center">Edit/Return</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+
+                <tr class="table-data" ng-repeat="room in trial | filter: searchItem | orderBy: [sortOrderBy,'room_number']">
+                    <td style="vertical-align:middle;" class="text-center">
+                        <div ng-hide="editingData[room._id]">{[{room.room_number}]}</div>
+                        <div ng-show="editingData[room._id]"><input type="text" ng-model="room.room_number" /></div>
+                    </td>
+                    <td style="vertical-align:middle;" class="text-center">
+                        <div ng-hide="editingData[room._id]">{[{room.item_description | uppercase}]}</div>
+                        <div ng-show="editingData[room._id]"><textarea type="text" ng-model="room.item_description" autofocus></textarea></div>
+                    </td>
+                    <td style="vertical-align:middle;" class="text-center">
+                        <div ng-hide="editingData[room._id]"><i class="far fa-calendar-alt"></i> {[{room.date | date}]}</div>
+                        <div ng-show="editingData[room._id]"><input type="date" ng-model="room.date" value="{[{room.date | date: 'yyyy-MM-dd'}]}" /></div>
+                    </td>
+                    {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
+                        <td class="text-center">
+                            <button ng-hide="editingData[room._id]" ng-click="modify(room._id)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-edit"></i> Edit</button><hr class="my-2">
+                            <button ng-show="editingData[room._id]" ng-click="update(room)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-upload"></i> Update</button><hr class="my-2">
+                            <button ng-click="send_info(room._id)" style="cursor: pointer" class="btn btn-success action-button done-button" data-target="#confirmModal" data-toggle="modal">Returned</button>
+                        </td>
+                    {% endif %}
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you wanna delete entry?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button data-dismiss="modal" type="button" ng-click="done_button(id)"  class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="newModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Report New Item</h4>
+                    <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form">
+                        <form method="post" action="">
+                            <div class="form-group">
+                                <label for="room_number2">Room #</label>
+                                <input type="text" class="form-control" id="room_number2" name="room_number" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label for="item_description2">Item Description</label>
+                                <input type="text" class="form-control" id="item_description2" name="item_description" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="date2">Date</label>
+                                <input type="date" class="form-control" id="date2" name="date" value="{{date}}" required>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}

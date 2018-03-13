@@ -1,0 +1,217 @@
+<div ng-app="myApp" ng-controller="inventoryListController">
+    <div class="container">
+        <span>
+            <h5 class="lost-title-text d-flex justify-content-center display-5">{[{currentCat}]}</h5>
+        </span>
+        <a class="report" data-toggle="modal" data-target="#newModal"><button class="font-weight-bold btn btn-danger"><i class="fas fa-plus"></i> New <b>"{[{currentCat}]}"</b> Item</button></a>
+        <hr class="my-4">
+        <span><input ng-model="searchItem" id="search" name="search" placeholder="Search... By room number or item"></span>
+        <hr class="my-3">
+        <div class="lost-content">
+            <table class="inventory-table table table-bordered table-striped room-table">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th class="text-center" >Item</th>
+                        <th class="text-center" >Laundry</th>
+                        <th class="text-center" >Lock Up</th>
+                        <th class="text-center" >2</th>
+                        <th class="text-center" >3</th>
+                        <th class="text-center" >4</th>
+                        <th class="text-center" >5</th>
+                        <th class="text-center" >6</th>
+                        <th class="text-center" >Par Stock</th>
+                        <th class="text-center" >Total Count</th>
+                        <th class="text-center" >$/Item</th>
+                        <th class="text-center" >Total<br>Cost</th>
+                        <th class="text-center" >2.5 Par</th>
+                        <th class="text-center">Edit</th>
+                    </tr>
+                </thead>
+
+                <tr ng-repeat="item in linen | filter: searchItem | orderBy: 'item_name'">
+                    <td class="text-center">{[{item.item_name | uppercase}]}</td>
+                    <td class="text-center">{[{item.laundry}]}</td>
+                    <td class="text-center">{[{item.lock_up}]}</td>
+                    <td class="text-center">{[{item.second}]}</td>
+                    <td class="text-center">{[{item.third}]}</td>
+                    <td class="text-center">{[{item.fourth}]}</td>
+                    <td class="text-center">{[{item.fifth}]}</td>
+                    <td class="text-center">{[{item.sixth}]}</td>
+                    <td class="text-center">{[{item.par_stock}]}</td>
+                    <td class="text-center" style="font-size:20px"><b>{[{item.total_count}]}</b></td>
+                    <td class="text-center">{[{item.cost_per_item}]}</td>
+                    <td class="text-center" style="font-size:20px"><b>{[{item.total_cost}]}</b></td>
+                    <td class="text-center">{[{item.par_25}]}</td>
+                    <td class="text-center">
+                        <a data-toggle="modal" data-target="#updateModal"><button ng-click="edit_button(item._id)"  class="btn-primary inventory-button"><i class="fas fa-edit"></i></button></a>
+                        <button data-toggle="modal" data-target="#confirmModal" ng-click="send_info(item._id, item.type)"  class="inventory-button btn-danger">X</button>
+                    </td>
+                </tr>
+                <tr style="background-color: grey;color:  black;font-size:20px;">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-center" colspan="2"><b>Total Count</b></td>
+                    <td class="text-center"><b><u>{[{linenCount}]}</u></b></td>
+                    <td class="text-center"><b>Total $</b></td>
+                    <td class="text-center"><b><u>{[{linenCost}]}</u></b></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="modal fade" id="newModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">New Item</h4>
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form">
+                            <form method="post" action="/inventory/new_item">
+                                <div class="form-group2">
+                                    <label for="item_name2">Item Name</label>
+                                    <input type="text" class="form-control" id="item_name2" name="item_name" placeholder="Enter '{[{currentCat}]}' item name here" autofocus required>
+                                </div>
+                                <div class="form-group2">
+                                    <label for="laundry2">Laundry</label>
+                                    <input type="text" class="form-control" id="laundry2" name="laundry" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <div class="form-group2">
+                                    <label for="lock_up2">Lock Up</label>
+                                    <input type="text" class="form-control" id="lock_up2" name="lock_up" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <div class="form-group2">
+                                    <label for="second2">Second Floor</label>
+                                    <input type="text" class="form-control" id="second2" name="second" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <div class="form-group2">
+                                    <label for="third2">Third Floor</label>
+                                    <input type="text" class="form-control" id="third2" name="third" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <div class="form-group2">
+                                    <label for="fourth2">Fourth Floor</label>
+                                    <input type="text" class="form-control" id="fourth2" name="fourth" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <div class="form-group2">
+                                    <label for="fifth2">Fifth floor</label>
+                                    <input type="text" class="form-control" id="fifth2" name="fifth" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <div class="form-group2">
+                                    <label for="sixth2">Sixth Floor</label>
+                                    <input type="text" class="form-control" id="sixth2" name="sixth" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <div class="form-group2">
+                                    <label for="par_stock2">Par Stock</label>
+                                    <input type="text" class="form-control" id="par_stock2" name="par_stock" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <div class="form-group2">
+                                    <label for="cost_per_item2">Cost Per Item</label>
+                                    <input type="text" class="form-control" id="cost_per_item2" name="cost_per_item" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="par_252">2.5 Par</label>
+                                    <input type="text" class="form-control" id="par_252" name="par_25" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                </div>
+                                <input  type="hidden" class="form-control" id="type2" name="type" value={[{currentCat}]} aria-describedby="storeURLPrefixHelp">
+                                <button type="submit" class="btn btn-danger">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="updateModal" ng-app="myApp" ng-controller="inventoryController">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Update</h4>
+                    <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form">
+                        <form method="post" action="/inventory/update_item">
+                            <div class="form-group">
+                                <label for="item_name">Item Name</label>
+                                <input type="text" class="form-control" id="item_name" name="item_name" value="{[{updateItem.item_name}]}" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label for="laundry">Laundry</label>
+                                <input type="text" class="form-control" id="laundry" name="laundry" value="{[{updateItem.laundry}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lock_up">Lock Up</label>
+                                <input type="text" class="form-control" id="lock_up" name="lock_up" value="{[{updateItem.lock_up}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="second">Second Floor</label>
+                                <input type="text" class="form-control" id="second" name="second" value="{[{updateItem.second}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="third">Third Floor</label>
+                                <input type="text" class="form-control" id="third" name="third" value="{[{updateItem.third}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fourth">Fourth Floor</label>
+                                <input type="text" class="form-control" id="fourth" name="fourth" value="{[{updateItem.fourth}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fifth">Fifth floor</label>
+                                <input type="text" class="form-control" id="fifth" name="fifth" value="{[{updateItem.fifth}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sixth">Sixth Floor</label>
+                                <input type="text" class="form-control" id="sixth" name="sixth" value="{[{updateItem.sixth}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="par_stock">Par Stock</label>
+                                <input type="text" class="form-control" id="par_stock" name="par_stock" value="{[{updateItem.par_stock}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cost_per_item">Cost Per Item</label>
+                                <input type="text" class="form-control" id="cost_per_item" name="cost_per_item" value="{[{updateItem.cost_per_item}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="par_25">2.5 Par</label>
+                                <input type="text" class="form-control" id="par_25" name="par_25" value="{[{updateItem.par_25}]}" aria-describedby="storeURLPrefixHelp" required>
+                            </div>
+                            <input type="hidden" id="_id" name="_id" value="{[{updateItem._id}]}">
+                            <input  type="hidden" class="form-control" id="type" name="type" value={[{currentCat}]} aria-describedby="storeURLPrefixHelp">
+                            <button type="submit" class="btn btn-danger">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you wanna delete entry?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button data-dismiss="modal" type="button" ng-click="done_button(id, type)"  class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+</div>

@@ -1,0 +1,391 @@
+input[id=search] {
+    margin:-10px;
+    width: 150px;
+    font-family: monospace;
+    font-style: oblique;
+    font-weight: lighter;
+    box-sizing: border-box;
+    border: 3px solid black;
+    border-radius: 30px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('/static/images/search_icon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[id=search]:focus {
+    width: 100%;
+    outline:none;
+}
+
+.month-cards {
+    display:flex;
+    justify-content: center;
+}
+
+.card {
+    margin: 5px;
+    padding:10px 10px;
+    text-decoration:none;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+.month-view {
+    position:relative;
+    top:70px;
+    left: auto;
+}
+
+.form {
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: #E9E9E9;
+    padding: 20px;
+    border: 1px solid #D5D5D5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.year {
+    color: white;
+    position:relative;
+    background: purple;
+}
+
+.room-status-clean span {
+    position: relative;
+    top: 7px;
+    background:green;
+    color:white;
+    border:1px solid black;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.room-status-not-done span {
+    position: relative;
+    top: 7px;
+    background:red;
+    color:white;
+    border:1px solid black;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.welcome-jumbotron {
+    position: relative;
+    top: 150px;
+}
+
+.btn {
+    cursor:pointer;
+}
+
+.hotel-logo {
+    height:100%;
+    width: 90%;
+}
+
+.hotel-logo:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.jimmy-text:hover {
+    box-shadow: 3px 16px 10px 5px black;
+}
+ .lost-title {
+    display:flex;
+    justify-content: center;
+    margin-top:90px;
+ }
+
+ .lost-title-text {
+    align-self: center;
+    font-family:fantasy;
+    font-size: 40px;
+ }
+
+ .lost-image {
+    height: 30px;
+    align-self: center;
+    margin-top: -8px;
+ }
+
+ .nav-logo {
+    width: 100px;
+    height: 45px;
+    left: 5%;
+    position: relative;
+    margin: 0px 30px 0 0;
+ }
+
+ .nav-logo:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-nav > li > a {
+  color: white;
+}
+
+.jimmy-footer {
+    height: 30px;
+}
+
+.jimmy-text {
+    padding: 2px 10px;
+    margin-top: 15px;
+    font-style: oblique;
+    font-family: monospace;
+    font-variant: proportional-nums;
+    font-weight: lighter;
+}
+
+.navbar-header > a {
+    padding:5px 10px;
+}
+
+.navbar-header > a:hover {
+    padding:5px 10px;
+    box-shadow: 0 8px 16px 0 black;
+    color:white;
+}
+
+.navbar:after {
+    clear:both;
+}
+
+.navbar-header {
+    display:inline-flex;
+}
+
+
+
+.nav-link:hover {
+    box-shadow: 0 8px 16px 0 black;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+.card {
+    color: black !important;
+}
+
+
+.cardFocused {
+    background: black;
+    color: white !important;
+}
+
+th:hover {
+    cursor: pointer;
+}
+
+body {
+    background-image: url("/static/images/website-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    margin-top: 100px;
+    margin-bottom: 130px;
+}
+
+.report-new-header {
+    display:flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.navbar-right{
+    position: relative;
+    left: 50%;
+}
+
+.login-form {
+    margin-top:15%;
+}
+
+.email-header {
+    color: white;
+}
+
+.dropdown {
+    margin-top: 3px;
+}
+
+.dropdown-item {
+    color:black !important;
+}
+
+.show > a {
+    position:relative;
+    left:0%;
+}
+
+.inventory-button {
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.inventory-table td {
+    padding:0rem !important;
+    vertical-align: middle !important;
+}
+
+.inventory-table th {
+    padding: 5px 0rem !important;
+    width:5rem !important;
+    vertical-align: middle !important;
+}
+
+.room-button-focused {
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+}
+
+.inventory-table input, textarea {
+    display: block;
+    width: 70px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.lost-table textarea, input {
+    display: block;
+    width: 97%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.lost-table input[type="text"] {
+    width: 70px;
+}
+
+.lost-table input[type="date"] {
+    width: 240px;
+}
+
+.lost-table textarea {
+    width: 600px;
+    align-content: center;
+}
+
+.lost-table td div {
+    font-size: 1.3rem;
+}
+
+.inventory-table textarea {
+    width: 150px;
+}
+
+.room-table td {
+    font-size: 1.3rem;
+}
+
+.count-row {
+    background-color: grey !important;
+    color: #6b0c0c;
+    font-style: oblique;
+}
+
+button {
+    cursor: pointer;
+}
+
+.row-done {
+    background-color: green;
+    color: white;
+}
+
+.row-not-done {
+    background-color: red;
+    color: white;
+}
+
+.row-done:hover {
+    background-color: #000000 !important;
+    color: #ca8585 !important;
+}
+
+.row-not-done:hover {
+    background-color: #000000 !important;
+    color: #ca8585 !important;
+}
+
+.table-data:hover {
+    background-color: #000000 !important;
+    color: #ca8585 !important;
+    height: 70px;
+    width:70px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.table-data:hover .row-done{
+    background-color: #000000 !important;
+    color: #ca8585 !important;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.table-data:hover .row-not-done{
+    background-color: #000000 !important;
+    color: #ca8585 !important;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+input[type=checkbox] {
+    cursor: pointer;
+    height: 30px;
+}
+
+.checkbox {
+    cursor:pointer;
+}
+
+.row-selected {
+    background-color: #758475 !important;
+    color:white !important;
+}
+
+.row-selected td {
+    padding:auto 0 !important;
+}
+
+.table-fixed thead {
+  width: 97%;
+}
+
+.selected-text {
+    font-size: .8rem;
+    padding: 0;
+}

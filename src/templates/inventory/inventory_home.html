@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="{{url_for('static', filename='js/controllers/inventoryController.js')}}"></script>
+
+<div class="container month-cards" ng-controller="inventoryController">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Categories</a>
+        <button class="navbar-toggler navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" ng-repeat="cat in categories">
+                <li>
+                    <a ng-click="catCard(cat)" ng-class="{'cardFocused': cat == currentCat}"  class="btn btn-info card">
+                        <span>{[{cat|uppercase}]}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>
+
+<div class="container">
+    <div ng-view></div>
+</div>
+
+{% endblock %}
+
