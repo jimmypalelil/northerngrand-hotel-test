@@ -3,14 +3,7 @@ import os
 
 
 class Database(object):
-    # URI = os.environ.get('MONGODB_URI')
-
-    #original database
-    #URI = 'mongodb://jimmypalelil:ahaaha@ds249707.mlab.com:49707/heroku_btv18l4k'
-
-    # test Database
-    URI = 'mongodb://jimmyavenged:9830100avenue@ds233228.mlab.com:33228/awsdb'
-
+    URI = os.environ.get('MONGODB_URI')
     DATABASE = None
 
     @staticmethod
