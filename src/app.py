@@ -24,4 +24,4 @@ app.register_blueprint(user_bp, url_prefix="/login")
 app.register_blueprint(inventory_bp, url_prefix="/inventory")
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
