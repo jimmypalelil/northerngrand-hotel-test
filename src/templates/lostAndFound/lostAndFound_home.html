@@ -20,7 +20,7 @@
                     <tr>
                         <th class="text-center" ng-click="sortOrder('room_number')">Room # <i ng-show="showRoomUpSort" class="fas fa-sort-up"></i><i ng-show="showRoomDownSort" class="fas fa-sort-down"></i></th>
                         <th class="text-center" style="width: 70%;">Item Description</th>
-                        <th class="text-center" ng-click="sortOrder('date')">Date <i ng-show="showDateUpSort" class="fas fa-sort-up"></i><i ng-show="showDateDownSort" class="fas fa-sort-down"></i></th>
+                        <th class="text-center" ng-click="sortOrder('date')">Date Found <i ng-show="showDateUpSort" class="fas fa-sort-up"></i><i ng-show="showDateDownSort" class="fas fa-sort-down"></i></th>
                         {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
                             <th class="text-center">Edit/Return</th>
                         {% endif %}
