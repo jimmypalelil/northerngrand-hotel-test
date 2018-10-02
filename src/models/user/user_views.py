@@ -5,11 +5,14 @@ user_bp = Blueprint('user_blueprint', __name__)
 
 @user_bp.route('/auth', methods=['POST', 'GET'])
 def login():
+    print(session['email'])
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
         if User.is_login_valid(email, password):
             session['email'] = email
+            if email == 'reservations@northerngrand.ca':
+                return redirect ('/lostAndFound')
             return redirect('/')
         else:
             return "You entered the wrong email/password"
@@ -23,7 +26,7 @@ def login_form():
 @user_bp.route('/logout')
 def logout():
     session['email'] = None
-    return render_template('login.html')
+    return render_template('user/login.html')
 
 def logoutAll():
     session['email'] = None
