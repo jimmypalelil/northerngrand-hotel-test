@@ -4,7 +4,7 @@
     <div class="jumbotron">
         {% if session['email'] == 'housekeeping@northerngrand.ca' %}
             <h5 class="display-5">Welcome, Jennifer</h5>
-        {% elif session['email'] is not none %}
+        {% elif session['email'] != '' %}
             <h5 class="display-5">Welcome, {{session['email']}}</h5>
         {% endif %}
         <span style="display: flex; justify-content: center; margin-top: 20px;">
