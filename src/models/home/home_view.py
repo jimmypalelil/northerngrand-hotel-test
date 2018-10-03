@@ -4,9 +4,7 @@ from datetime import datetime
 home_bp = Blueprint('home_blueprint', __name__)
 
 @home_bp.route('/')
-def home():
-    if session['email'] is None:
-        session['email'] = 'None'
+def home():    
     return render_template('home.html', year = datetime.today().year)
 
 @home_bp.route('/bedding')
