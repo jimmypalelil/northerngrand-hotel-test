@@ -62,14 +62,14 @@
                         <a class="nav-link dropdown-item" href="/mattresss#/list/mattress/2018/jan%20to%20mar"><i class="flaticon-mattress"></i> Bed Flip</a>
                         <a class="nav-link dropdown-item" href="/inventory/#/inventorylist/Linen"><i class="flaticon-clipboard"></i> Inventory</a>
                     </div>
-                </li>
-                {% if session['email'] == 'None' %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login"><i class="flaticon-user"></i> Login</a>
-                    </li>
-                {% elif session['email'] != 'None' %}
+                </li>                
+                {% if session['email'] %}
                     <li class="nav-item">
                         <a class="nav-link" href="/login"><i class="flaticon-login"></i> Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login"><i class="flaticon-user"></i> Login</a>
                     </li>
                 {% endif %}
             </ul>
