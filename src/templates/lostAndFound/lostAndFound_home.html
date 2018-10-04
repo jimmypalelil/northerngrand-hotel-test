@@ -43,8 +43,8 @@
                         <div ng-hide="editingData[room._id]"><i class="far fa-calendar-alt"></i> {[{room.date | date}]}</div>
                         <div ng-show="editingData[room._id]"><input type="date" ng-model="room.date" value="{[{room.date | date: 'yyyy-MM-dd'}]}" /></div>
                     </td>
-                    {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
-                        <td class="text-center">
+                    <td class="text-center">
+                    {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}                        
                             <button ng-hide="editingData[room._id]" ng-click="modify(room._id)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-edit"></i> Edit</button><hr class="my-2">
                             <button ng-show="editingData[room._id]" ng-click="update(room)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-upload"></i> Update</button><hr class="my-2">
                     {% endif %} 
