@@ -24,6 +24,9 @@
                         {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
                             <th class="text-center">Edit/Return</th>
                         {% endif %}
+                        {% if session['email'] == 'reservations@northerngrand.ca' %}
+                            <th class="text-center">Return</th>
+                        {% endif %}
                     </tr>
                 </thead>
 
