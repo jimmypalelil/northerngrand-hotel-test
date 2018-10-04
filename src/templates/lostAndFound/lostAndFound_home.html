@@ -44,9 +44,9 @@
                         <td class="text-center">
                             <button ng-hide="editingData[room._id]" ng-click="modify(room._id)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-edit"></i> Edit</button><hr class="my-2">
                             <button ng-show="editingData[room._id]" ng-click="update(room)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-upload"></i> Update</button><hr class="my-2">
+                    {% endif %} 
                             <button ng-click="send_info(room._id)" style="cursor: pointer" class="btn btn-success action-button done-button" data-target="#confirmModal" data-toggle="modal">Returned</button>
-                        </td>
-                    {% endif %}
+                        </td>                    
                 </tr>
             </table>
         </div>
