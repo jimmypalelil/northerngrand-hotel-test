@@ -35,7 +35,7 @@
     <div class="conatiner">
         {% if session['email'] == 'housekeeping@northerngrand.ca' %}
             <span class="navbar-text email-header">Hello, Jennifer</span>
-        {% elif session['email'] == 'reservations@northerngrand.ca' %}
+        {% elif session['email'] is not none and session['email'] != '' %}
             <span class="navbar-text email-header">Hello, {{session['email']}}</span>
         {% endif %}
     </div>
@@ -62,14 +62,14 @@
                         <a class="nav-link dropdown-item" href="/mattresss#/list/mattress/2018/jan%20to%20mar"><i class="flaticon-mattress"></i> Bed Flip</a>
                         <a class="nav-link dropdown-item" href="/inventory/#/inventorylist/Linen"><i class="flaticon-clipboard"></i> Inventory</a>
                     </div>
-                </li>                
-                {% if session['email'] %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login"><i class="flaticon-login"></i> Logout</a>
-                    </li>
-                {% else %}
+                </li>
+                {% if session['email'] is none or session['email'] == '' %}
                     <li class="nav-item">
                         <a class="nav-link" href="/login"><i class="flaticon-user"></i> Login</a>
+                    </li>
+                {% elif session['email'] is not none %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login"><i class="flaticon-login"></i> Logout</a>
                     </li>
                 {% endif %}
             </ul>

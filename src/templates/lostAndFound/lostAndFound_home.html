@@ -20,12 +20,9 @@
                     <tr>
                         <th class="text-center" ng-click="sortOrder('room_number')">Room # <i ng-show="showRoomUpSort" class="fas fa-sort-up"></i><i ng-show="showRoomDownSort" class="fas fa-sort-down"></i></th>
                         <th class="text-center" style="width: 70%;">Item Description</th>
-                        <th class="text-center" ng-click="sortOrder('date')">Date Found <i ng-show="showDateUpSort" class="fas fa-sort-up"></i><i ng-show="showDateDownSort" class="fas fa-sort-down"></i></th>
+                        <th class="text-center" ng-click="sortOrder('date')">Date <i ng-show="showDateUpSort" class="fas fa-sort-up"></i><i ng-show="showDateDownSort" class="fas fa-sort-down"></i></th>
                         {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
                             <th class="text-center">Edit/Return</th>
-                        {% endif %}
-                        {% if session['email'] == 'reservations@northerngrand.ca' %}
-                            <th class="text-center">Return</th>
                         {% endif %}
                     </tr>
                 </thead>
@@ -43,13 +40,13 @@
                         <div ng-hide="editingData[room._id]"><i class="far fa-calendar-alt"></i> {[{room.date | date}]}</div>
                         <div ng-show="editingData[room._id]"><input type="date" ng-model="room.date" value="{[{room.date | date: 'yyyy-MM-dd'}]}" /></div>
                     </td>
-                    <td class="text-center">
-                    {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}                        
+                    {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
+                        <td class="text-center">
                             <button ng-hide="editingData[room._id]" ng-click="modify(room._id)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-edit"></i> Edit</button><hr class="my-2">
                             <button ng-show="editingData[room._id]" ng-click="update(room)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-upload"></i> Update</button><hr class="my-2">
-                    {% endif %} 
                             <button ng-click="send_info(room._id)" style="cursor: pointer" class="btn btn-success action-button done-button" data-target="#confirmModal" data-toggle="modal">Returned</button>
-                        </td>                    
+                        </td>
+                    {% endif %}
                 </tr>
             </table>
         </div>

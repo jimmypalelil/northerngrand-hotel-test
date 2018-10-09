@@ -15,7 +15,7 @@ def index():
         Item(room_number, item_description, date).insert()
         return redirect('/lostAndFound/')
 
-    if session['email'] != 'None':
+    if session['email'] is not None:
         return render_template('/lostAndFound/lostAndFound_home.html', date= datetime.today().strftime("%Y-%m-%d"))
     return render_template('/user/login.html')
 
