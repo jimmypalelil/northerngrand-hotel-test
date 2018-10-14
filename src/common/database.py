@@ -3,7 +3,7 @@ import os
 
 
 class Database(object):
-    URI = os.environ.get('MONGODB_URI')
+    URI = os.environ.get("MONGOLAB_URI")
     DATABASE = None
 
     @staticmethod
@@ -18,14 +18,18 @@ class Database(object):
     @staticmethod
     def insert(collection, data):
         Database.DATABASE[collection].insert(data)
-
+        
+    @staticmethod
+    def findAll(collection):
+        return Database.DATABASE[collection].find()
+        
     @staticmethod
     def find(collection, query):
         return Database.DATABASE[collection].find(query)
 
     @staticmethod
     def update(collection,query, data):
-        Database.DATABASE[collection].update(query, data, upsert=False)
+        Database.DATABASE[collection].update(query, data, upsert=True)
 
     @staticmethod
     def remove(collection, query):

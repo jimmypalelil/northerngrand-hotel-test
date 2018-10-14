@@ -1,15 +1,16 @@
-from flask import Blueprint, render_template, json, request, redirect, session
+from flask import Blueprint, render_template, json, request, redirect
 from bson.json_util import dumps
 from src.common.database import Database
 from src.models.inventoryItem.inventoryItem import InventoryItem
 
+import src.models.user.decorators as user_decorators
+
 inventory_bp = Blueprint('inventory_blueprint', __name__)
 
 @inventory_bp.route('/')
+@user_decorators.requires_login
 def index():
-    if session['email'] == 'jimmypalelil@gmail.com' or session['email'] == 'housekeeping@northerngrand.ca':
-        return render_template('inventory/inventory_home.html')
-    return render_template('user/login.html', message = "Access to Housekeeping only")
+    return render_template('inventory/inventory_home.html')
 
 @inventory_bp.route('/new_item', methods=['GET', 'POST'])
 def new_item():
@@ -46,4 +47,4 @@ def inventoryList():
 
 @inventory_bp.route('/inventorylist')
 def inventorylist():
-    return render_template('/inventory/inventoryList.html')
+    return render_template('inventory/inventoryList.html')

@@ -1,0 +1,58 @@
+<div>
+    <div>
+        <h1 class="display-4">
+            <g ng-switch="type">
+                <g  ng-switch-when="beddings">Bedding "{[{status | uppercase}]}" Rooms</g>
+                <g ng-switch-when="pillows">Pillow Protector "{[{status | uppercase}]}" Rooms</g>
+                <g ng-switch-when="carpets">Carpet Shampoo "{[{status | uppercase}]}" Rooms</g>
+                <g ng-switch-when="mattress">Bed Flipping "{[{status | uppercase}]}" Rooms</g>
+                <g ng-switch-when="pillowss">Pillows "{[{status | uppercase}]}" Rooms</g>
+            </g>
+        </h1>
+        <p class="lead">
+            for <i class="fas fa-calendar-alt"></i> {[{currentMonth| uppercase}]} {[{currentYear}]}
+        </p>
+        <span><button ng-class="{'room-button-focused': status == 'not done', '': status != 'not done'}" ng-click="statusButton('not done')" class="btn btn-primary">Undone Rooms: {[{undoneCount}]}</button></span>
+        <span><button ng-class="{'room-button-focused': status == 'clean', '': status != 'clean'}" ng-click="statusButton('clean')" class="btn btn-info">Done Rooms: {[{doneCount}]}</button></span>
+        <span><button ng-class="{'room-button-focused': status == 'all', '': status != 'all'}" ng-click="statusButton('all')" class="btn btn-success">All Rooms: {[{doneCount + undoneCount}]}</button></span>
+        <hr class="my-4">
+
+        <span><input ng-model="searchItem" id="search" name="search" placeholder="Search... By room number"></span>
+        <hr class="my-4">
+
+        <table class="table table-bordered table-striped room-table">
+
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="text-center"><i class="far fa-check-square"></i></th>
+                    <th class="text-center" ng-click="sortOrder('room_number')">Room # <i ng-show="showRoomUpSort" class="fas fa-sort-up"></i><i ng-show="showRoomDownSort" class="fas fa-sort-down"></i></th>
+                    <th class="text-center" ng-click="sortOrder('type')">Type <i ng-show="showTypeUpSort" class="fas fa-sort-up"></i><i ng-show="showTypeDownSort" class="fas fa-sort-down"></i></th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+
+
+            <tr class="table-data" ng-repeat="room in trial | filter: greaterThan('room_number',searchItem) | orderBy: [sortOrderBy,'room_number']" ng-show="show_if(room.status)" ng-class="{'row-selected': room.checked ==  true, '' : room.checked == false}"  >
+                <td class="text-center checkbox" ng-click="addList(room)"><input type="checkbox"  ng-model="room.checked">
+                    <span class="selected-text" ng-show="selected > 0 && room.checked">(Selected:{[{selected}]})</span>
+                </td>
+                <td class="text-center">{[{room.room_number}]}</td>
+                <td class="text-center">{[{room.type}]}</td>
+                <td class="text-center" ng-class="{'room-status-clean row-done': room.status == 'clean', 'room-status-not-done row-not-done': room.status =='not done'}"><span>{[{room.status|uppercase}]}</span></td>
+                <td class="text-center">
+                    <div ng-switch="room.status">
+                        <div  ng-switch-when="clean">
+                            <button ng-click="statusChange(room, 'not done')" class="btn btn-danger action-button undo-button">Mark as Undone</button>
+                        </div>
+                        <div ng-switch-when="not done">
+                            <button ng-click="statusChange(room, 'clean')" class="btn btn-success done-button">Mark as Done</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+

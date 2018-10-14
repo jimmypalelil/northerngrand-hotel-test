@@ -1,15 +1,15 @@
-var app = angular.module('myApp', ['ngRoute'])
+var app = angular.module('myApp', ['ngRoute']);
 
-app.config(function($interpolateProvider, $routeProvider) {
+app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 });
 
-app.config(function($interpolateProvider, $routeProvider) {
+app.config(function($routeProvider) {
     $routeProvider
-    .when('/list/:type/:year/:trial_month', {
-        templateUrl: '/trial/triallist',
-        controller: 'trialListController'
-    });
+        .when("/:monthListNum/list/:type/:year/:month", {
+            templateUrl: '/HK_Views/hkList',
+            controller: 'listController'
+        });
 });
 
 $(document).ready(function () {

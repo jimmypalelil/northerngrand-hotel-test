@@ -1,22 +1,30 @@
 app.controller('lostController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
     $http.get('./lostList') .success(function(data) {
-            $scope.trial =  data;
-            $scope.editingData = {};
-            for (var i = 0, length = $scope.trial.length; i < length; i++) {
-              $scope.editingData[$scope.trial[i]._id] = false;
-            }
-        }).error(function(err) {
-            return err;
-        });
+        $scope.trial =  data;
+        $scope.editingData = {};
+        for (var i = 0, length = $scope.trial.length; i < length; i++) {
+          $scope.editingData[$scope.trial[i]._id] = false;
+        }
+    }).error(function(err) {
+        return err;
+    });
 
-    $scope.send_info = function(id) {
-        $scope.id = id;
+    $scope.send_info = function(item) {
+        $scope.itemID = item._id;
+        $scope.itemDescription = item.item_description;
+        $scope.itemRoomNo = item.room_number;
     };
 
-    $scope.done_button = function(id) {
-        $http.post('./returned/'+id).then(function(data) {
+    $scope.confirmDelete = function() {
+        console.log($scope.itemID);
+        $http.post('./deleteLostItem/' + $scope.itemID).then(function (data) {
             $scope.trial = data.data;
-        });
+        })
+    };
+
+
+    $scope.confirmReturn = function() {
+      $http.post('./returnItem/' + $scope.itemID)
     };
 
     $scope.modify = function(id){

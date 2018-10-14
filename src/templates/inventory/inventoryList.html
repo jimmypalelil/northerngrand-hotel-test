@@ -106,58 +106,65 @@
         </div>
 
         <div class="modal fade" id="newModal">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">New Item</h4>
                         <button class="close" data-dismiss="modal">&times;</button>
                     </div>
-                    <div class="modal-body">
-                        <div class="form">
+                    <div class="modal-body modal_stretch">
+                        <div class="form" style="width: 800px;">
                             <form method="post" action="/inventory/new_item">
-                                <div class="form-group2">
+                                <div class="form-group">
                                     <label for="item_name2">Item Name</label>
                                     <input type="text" class="form-control" id="item_name2" name="item_name" placeholder="Enter '{[{currentCat}]}' item name here" autofocus required>
                                 </div>
-                                <div class="form-group2">
-                                    <label for="laundry2">Laundry</label>
-                                    <input type="text" class="form-control" id="laundry2" name="laundry" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="laundry2">Laundry</label>
+                                        <input type="number" class="form-control" id="laundry2" name="laundry" value="0" placeholder="0" aria-describedby="storeURLPrefixHelp" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="lock_up2">Lock Up</label>
+                                        <input type="number" class="form-control" id="lock_up2" name="lock_up" value="0" placeholder="0" aria-describedby="storeURLPrefixHelp" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="par_stock2">Par Stock</label>
+                                        <input type="number" class="form-control" id="par_stock2" name="par_stock" value="0" placeholder="0" aria-describedby="storeURLPrefixHelp" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="par_252">2.5 Par</label>
+                                        <input type="number" class="form-control" id="par_252" name="par_25" value="0" placeholder="0" aria-describedby="storeURLPrefixHelp" required>
+                                    </div>
                                 </div>
-                                <div class="form-group2">
-                                    <label for="lock_up2">Lock Up</label>
-                                    <input type="text" class="form-control" id="lock_up2" name="lock_up" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                <hr class="my-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="second2">Second Floor</label>
+                                        <input type="number" class="form-control" id="second2" name="second" value="0" placeholder="0" aria-describedby="storeURLPrefixHelp" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="third2">Third Floor</label>
+                                        <input type="number" class="form-control" id="third2" name="third" value="0" placeholder="0" aria-describedby="storeURLPrefixHelp" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="fourth2">Fourth Floor</label>
+                                        <input type="number" class="form-control" id="fourth2" name="fourth" value="0" placeholder="0" aria-describedby="storeURLPrefixHelp" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="fifth2">Fifth floor</label>
+                                        <input type="number" class="form-control" id="fifth2" name="fifth" value="0" placeholder="0" aria-describedby="storeURLPrefixHelp" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="sixth2">Sixth Floor</label>
+                                        <input type="number" class="form-control" id="sixth2" name="sixth" value="0" placeholder="0" aria-describedby="storeURLPrefixHelp" required>
+                                    </div>
                                 </div>
-                                <div class="form-group2">
-                                    <label for="second2">Second Floor</label>
-                                    <input type="text" class="form-control" id="second2" name="second" value="0" aria-describedby="storeURLPrefixHelp" required>
-                                </div>
-                                <div class="form-group2">
-                                    <label for="third2">Third Floor</label>
-                                    <input type="text" class="form-control" id="third2" name="third" value="0" aria-describedby="storeURLPrefixHelp" required>
-                                </div>
-                                <div class="form-group2">
-                                    <label for="fourth2">Fourth Floor</label>
-                                    <input type="text" class="form-control" id="fourth2" name="fourth" value="0" aria-describedby="storeURLPrefixHelp" required>
-                                </div>
-                                <div class="form-group2">
-                                    <label for="fifth2">Fifth floor</label>
-                                    <input type="text" class="form-control" id="fifth2" name="fifth" value="0" aria-describedby="storeURLPrefixHelp" required>
-                                </div>
-                                <div class="form-group2">
-                                    <label for="sixth2">Sixth Floor</label>
-                                    <input type="text" class="form-control" id="sixth2" name="sixth" value="0" aria-describedby="storeURLPrefixHelp" required>
-                                </div>
-                                <div class="form-group2">
-                                    <label for="par_stock2">Par Stock</label>
-                                    <input type="text" class="form-control" id="par_stock2" name="par_stock" value="0" aria-describedby="storeURLPrefixHelp" required>
-                                </div>
-                                <div class="form-group2">
-                                    <label for="cost_per_item2">Cost Per Item</label>
-                                    <input type="text" class="form-control" id="cost_per_item2" name="cost_per_item" value="0" aria-describedby="storeURLPrefixHelp" required>
-                                </div>
+                                <hr class="my-2">
                                 <div class="form-group">
-                                    <label for="par_252">2.5 Par</label>
-                                    <input type="text" class="form-control" id="par_252" name="par_25" value="0" aria-describedby="storeURLPrefixHelp" required>
+                                        <label for="cost_per_item2">Cost Per Item</label><br>
+                                        <input type="number" class="form-control" id="cost_per_item2" name="cost_per_item" value="0" aria-describedby="storeURLPrefixHelp" required>
                                 </div>
                                 <input  type="hidden" class="form-control" id="type2" name="type" value={[{currentCat}]} aria-describedby="storeURLPrefixHelp">
                                 <button type="submit" class="btn btn-danger">Submit</button>

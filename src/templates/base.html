@@ -28,14 +28,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
 
     <script src="{{url_for('static', filename='js/app.js')}}"></script>
-    <script src="{{url_for('static', filename='js/controllers/trialController.js')}}"></script>
+    <script src="{{url_for('static', filename='js/controllers/mainController.js')}}"></script>
 
 </head>
 <nav class="navbar fixed-top navbar-expand-sm bg-dark">
     <div class="conatiner">
         {% if session['email'] == 'housekeeping@northerngrand.ca' %}
             <span class="navbar-text email-header">Hello, Jennifer</span>
-        {% elif session['email'] is not none and session['email'] != '' %}
+        {% elif session['email'] == 'reservations@northerngrand.ca' %}
             <span class="navbar-text email-header">Hello, {{session['email']}}</span>
         {% endif %}
     </div>
@@ -53,23 +53,23 @@
                     <a class="nav-link" href="/lostAndFound"><i class="flaticon-magnifier-tool"></i> Lost and Found</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="sad" role="button"><i class="fas fa-home"></i> Housekeeping</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/" role="button"><i class="fas fa-home"></i> Housekeeping</a>
                     <div class="dropdown-menu">
-                        <a class="nav-link dropdown-item" href="/bedding#/list/beddings/2018/jan"><i class="flaticon-hostel-double-bed-with-two-pillows"></i> Bedding</a>
-                        <a class="nav-link dropdown-item" href="/carpet_shampoo#/list/carpets/2018/jan%20to%20jun"><i class="flaticon-carpet"></i> Carpet Shampoo</a>
-                        <a class="nav-link dropdown-item" href="/pillowss#/list/pillowss/2018/jan%20to%20jun"><i class="flaticon-pillow"></i> Pillows</a>
-                        <a class="nav-link dropdown-item" href="/pillow_protector#/list/pillows/2018/jan%20to%20mar"><i class="flaticon-pillow-1"></i> Pillow Protector</a>
-                        <a class="nav-link dropdown-item" href="/mattresss#/list/mattress/2018/jan%20to%20mar"><i class="flaticon-mattress"></i> Bed Flip</a>
+                        <a class="nav-link dropdown-item" href="/HK#/0/list/beddings/2018/jan"><i class="flaticon-hostel-double-bed-with-two-pillows"></i> Bedding</a>
+                        <a class="nav-link dropdown-item" href="/HK#/1/list/carpets/2018/jan%20to%20jun"><i class="flaticon-carpet"></i> Carpet Shampoo</a>
+                        <a class="nav-link dropdown-item" href="/HK#/2/list/pillowss/2018/jan%20to%20jun"><i class="flaticon-pillow"></i> Pillows</a>
+                        <a class="nav-link dropdown-item" href="/HK#/3/list/pillows/2018/jan%20to%20mar"><i class="flaticon-pillow-1"></i> Pillow Protector</a>
+                        <a class="nav-link dropdown-item" href="/HK#/4/list/mattress/2018/jan%20to%20mar"><i class="flaticon-mattress"></i> Bed Flip</a>
                         <a class="nav-link dropdown-item" href="/inventory/#/inventorylist/Linen"><i class="flaticon-clipboard"></i> Inventory</a>
                     </div>
-                </li>
-                {% if session['email'] is none or session['email'] == '' %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login"><i class="flaticon-user"></i> Login</a>
-                    </li>
-                {% elif session['email'] is not none %}
+                </li>                
+                {% if session['email'] %}
                     <li class="nav-item">
                         <a class="nav-link" href="/login"><i class="flaticon-login"></i> Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login"><i class="flaticon-user"></i> Login</a>
                     </li>
                 {% endif %}
             </ul>
@@ -100,4 +100,3 @@
 </nav>
 </footer>
 </html>
-    <script src="{{url_for('static', filename='js/jq.js')}}"></script>

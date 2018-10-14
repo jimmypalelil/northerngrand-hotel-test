@@ -1,7 +1,8 @@
+from bson.json_util import dumps
+
 import uuid
 
 from src.common.database import Database
-
 
 class Item(object):
     def __init__(self, room_number, item_description, date, cat=None, _id=None):
@@ -27,11 +28,18 @@ class Item(object):
     def get_by_room_id(cls, id):
         return cls(**Database.find_one('losts', {"_id": id}))
 
+    @staticmethod
+    def getAllLosts():
+        return dumps(Database.findAll('losts'))
+
     def insert(self):
         Database.insert('losts', self.json())
 
-    def remove(self, id):
+    @classmethod
+    def remove(cls, id):
         Database.remove('losts', {"_id": id})
 
-    def update(self, id, data):
+    @classmethod
+    def update(cls, id, data):
         Database.update('losts', {"_id": id}, data)
+

@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="container form login-form">
-    <h5 class="display-5"><i class="fas fa-lock"></i> Login with your federated credentials: <p style="color:red;">{{message}}</p></h5>
+    <h5 class="display-5"><i class="fas fa-lock"></i> Login: {{message}}</h5>
     <form action="/login/auth" method="post">
         <div class="form-group">
             <label for="email">Email</label>

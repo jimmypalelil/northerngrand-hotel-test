@@ -4,15 +4,17 @@
     <div class="jumbotron">
         {% if session['email'] == 'housekeeping@northerngrand.ca' %}
             <h5 class="display-5">Welcome, Jennifer</h5>
-        {% elif session['email'] is not none %}
+        {% elif session['email'] %}
             <h5 class="display-5">Welcome, {{session['email']}}</h5>
+        {% else %}
+            <h5 class="display-5">Welcome</h5>
         {% endif %}
         <span style="display: flex; justify-content: center; margin-top: 20px;">
             <img class="hotel-logo" src="{{ url_for('static', filename='images/favicon.png') }}">
         </span>
         <br><br><br><br>
         <h3 class="display-5 font-italic"><i class="fab fa-fort-awesome"></i> Housekeeping Management Services</h3>
-        {% if session['email'] is none or session['email'] == '' %}
+        {% if not session['email'] %}
             <h5 class="display-5">Please <a class="nav-item" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a> to continue</h5>
         {% endif %}
         <hr class="my-4">
