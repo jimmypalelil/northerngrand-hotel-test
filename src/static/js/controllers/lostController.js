@@ -16,11 +16,16 @@ app.controller('lostController', ['$scope', '$http', '$routeParams', function($s
     };
 
     $scope.confirmDelete = function() {
-        console.log($scope.itemID);
         $http.post('./deleteLostItem/' + $scope.itemID).then(function (data) {
             $scope.trial = data.data;
         })
     };
+
+    $scope.confirmEmail = function () {
+        $http.post('./emailItem/' + $scope.itemID);
+    };
+
+
 
 
     $scope.confirmReturn = function() {

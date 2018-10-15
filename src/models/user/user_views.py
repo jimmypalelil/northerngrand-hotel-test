@@ -34,7 +34,7 @@ def sendMail(email):
     else:
         ip = request.remote_addr
     content = Content("text/plain", email + " signed in on: " + date_time.strftime('%Y-%m-%d') + " at: " + date_time.strftime('%H:%M') + \
-              "\nIP Address: " + ip)
+              "| IP Address: " + ip)
     mail = Mail(from_email, subject, to_email, content)
     response = sg.client.mail.send.post(request_body=mail.get())
 
@@ -46,12 +46,13 @@ def sendSMS(email):
         ip = request.headers.getlist("X-Forwarded-For")[0]
     else:
         ip = request.remote_addr
-    msg = email + " signed in on: " + date_time.strftime('%Y-%m-%d') + " at: " + date_time.strftime('%H:%M') + \
-        "\nIP Address: " + ip
-    requests.post(TILL_URL, json={
-        "phone": ["+16047041312"],
-        "text": msg
-    })
+    if ip != '50.68.8.251' or ip != '127.0.0.1':
+        msg = email + " signed in on: " + date_time.strftime('%Y-%m-%d') + " at: " + date_time.strftime('%H:%M') + \
+            "| IP Address: " + ip
+        requests.post(TILL_URL, json={
+            "phone": ["+16047041312"],
+            "text": msg
+        })
     
 @user_bp.route('/')
 def login_form():

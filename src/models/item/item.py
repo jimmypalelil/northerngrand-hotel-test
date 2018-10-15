@@ -25,7 +25,7 @@ class Item(object):
         Database.update('losts', {"_id": self._id}, self.json())
 
     @classmethod
-    def get_by_room_id(cls, id):
+    def get_by_item_id(cls, id):
         return cls(**Database.find_one('losts', {"_id": id}))
 
     @staticmethod
