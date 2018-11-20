@@ -59,7 +59,7 @@ class ReturnedItem(object):
 
     @classmethod
     def createNewReturn(cls, id, guestName, returnedBy, comments):
-        item = Item.get_by_room_id(id)
+        item = Item.get_by_item_id(id)
         Item.remove(id)
         ReturnedItem(item.room_number, guestName, item.item_description, returnedBy, item.date, comments, item._id).insert()
 

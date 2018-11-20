@@ -46,13 +46,12 @@ def sendSMS(email):
         ip = request.headers.getlist("X-Forwarded-For")[0]
     else:
         ip = request.remote_addr
-    if ip != '50.68.8.251' or ip != '127.0.0.1':
-        msg = email + " signed in on: " + date_time.strftime('%Y-%m-%d') + " at: " + date_time.strftime('%H:%M') + \
-            "| IP Address: " + ip
-        requests.post(TILL_URL, json={
-            "phone": ["+16047041312"],
-            "text": msg
-        })
+    msg = email + " signed in on: " + date_time.strftime('%Y-%m-%d') + " at: " + date_time.strftime('%H:%M') + \
+        "| IP Address: " + ip
+    requests.post(TILL_URL, json={
+        "phone": ["+16047041312"],
+        "text": msg
+    })
     
 @user_bp.route('/')
 def login_form():

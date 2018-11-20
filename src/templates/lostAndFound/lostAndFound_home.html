@@ -56,7 +56,9 @@
                         {% endif %}
                         <button ng-click="send_info(item)" style="cursor: pointer" class="btn btn-success action-button done-button" data-target="#returnModal" data-toggle="modal"><i class="fas fa-gift"></i> Return to Guest</button>
                         <hr class="my-2">
+                    {% if session['email'] == 'reservations@northerngrand.ca' %}
                         <button ng-click="send_info(item)" style="cursor: pointer" class="btn btn-info action-button done-button" data-target="#emailModal" data-toggle="modal"><i class="fas fa-envelope"></i> Jennifer</button>
+                   {% endif %}
                     </td>
                     {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
                         <td class="text-center">

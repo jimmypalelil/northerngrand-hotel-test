@@ -26,8 +26,8 @@ def new_item():
     cost_per_item = float(request.form['cost_per_item'])
     par_25 = float(request.form['par_25'])
     type = request.form['type']
-    InventoryItem(item_name, laundry, lock_up, second, third, fourth, fifth, sixth, par_stock, cost_per_item,
-                  par_25, type).insert()
+    InventoryItem(item_name, laundry, lock_up, second, third, fourth,
+                  fifth, sixth, par_stock, cost_per_item, par_25, type).insert()
     return redirect('/inventory/#/inventorylist/' + type)
 
 @inventory_bp.route('/delete/<id>', methods=['POST'])
