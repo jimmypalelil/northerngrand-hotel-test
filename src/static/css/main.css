@@ -385,3 +385,17 @@ input[type=checkbox] {
     font-size: .8rem;
     padding: 0;
 }
+
+.tableButton span {
+    max-width: 0;
+    -webkit-transition: max-width 1s;
+    transition: max-width 1s;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tableButton:hover span {
+  max-width: 7rem;
+}

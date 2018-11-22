@@ -50,14 +50,20 @@
                     </td>
                     <td class="text-center">
                         {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
-                                <button ng-hide="editingData[item._id]" ng-click="modify(item._id)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-edit"></i> Edit</button>
-                                <button ng-show="editingData[item._id]" ng-click="update(item)" style="display: inline; cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-upload"></i> Update</button>
+                                <button ng-hide="editingData[item._id]" ng-click="modify(item._id)" class="btn btn-primary tableButton">
+                                    <i class="fas fa-edit"></i> <span>Edit</span>
+                                </button>
+                            <button ng-show="editingData[item._id]" ng-click="update(item)" class="btn btn-primary tableButton"><i class="fas fa-upload"></i> <span>Update</span></button>
                                 <hr class="my-2">
                         {% endif %}
-                        <button ng-click="send_info(item)" style="cursor: pointer" class="btn btn-success action-button done-button" data-target="#returnModal" data-toggle="modal"><i class="fas fa-gift"></i> Return to Guest</button>
+                        <button ng-click="send_info(item)" class="btn btn-success action-button tableButton" data-target="#returnModal" data-toggle="modal">
+                            <i class="fas fa-gift"></i> <span>Return to Guest</span>
+                        </button>
                         <hr class="my-2">
                     {% if session['email'] == 'reservations@northerngrand.ca' %}
-                        <button ng-click="send_info(item)" style="cursor: pointer" class="btn btn-info action-button done-button" data-target="#emailModal" data-toggle="modal"><i class="fas fa-envelope"></i> Jennifer</button>
+                        <button ng-click="send_info(item)" class="btn btn-info action-button tableButton" data-target="#emailModal" data-toggle="modal">
+                            <i class="fas fa-envelope"></i> <span>Email Jennifer</span>
+                        </button>
                    {% endif %}
                     </td>
                     {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
