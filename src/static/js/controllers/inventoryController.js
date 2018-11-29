@@ -1,4 +1,4 @@
-app.config(function($interpolateProvider, $routeProvider) {
+app.config(function($routeProvider) {
     $routeProvider
     .when('/inventorylist/:type', {
         templateUrl: '/inventory/inventorylist',
@@ -15,14 +15,21 @@ app.controller('inventoryController', ['$scope', '$http', '$routeParams','$rootS
 
 
 app.controller('inventoryListController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
+
+    $scope.categories = ['Linen', 'Guest Room Supplies', 'Laundry Supplies', 'Cleaning Supplies', 'Miscellaneous'];
+    $scope.catCard = function(cat) {
+        $rootScope.currentCat = cat;
+    };
+
     $rootScope.currentCat = $routeParams.type;
-    $http.get('/inventory/inventoryList/').success(function(data) {
-        $scope.linen =  data;
+    $http.get('/inventory/inventoryList/').then(function(data) {
+        $scope.linen =  data.data;
+        console.log(data);
         $scope.editingData = {};
         for (var i = 0, length = $scope.linen.length; i < length; i++) {
             $scope.editingData[$scope.linen[i]._id] = false;
         }
-    }).error(function(err) {
+    }).catch(function(err) {
         return err;
     });
 

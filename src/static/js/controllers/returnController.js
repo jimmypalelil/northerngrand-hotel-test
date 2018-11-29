@@ -1,12 +1,14 @@
 app.controller('returnController', ['$scope', '$http', function($scope, $http) {
-    $http.get('./returnList').success(function (data) {
-    $scope.returnList = data;
-    $scope.editingData = {};
-    for (var i = 0, length = $scope.returnList.length; i < length; i++) {
-      $scope.editingData[$scope.returnList[i]._id] = false;
-    }
-    }).error(function (err) {
-        return err;
+
+    //Get returned item list
+    $http.get('./returnList').then(function (response) {
+        $scope.returnList = response.data;
+        $scope.editingData = {};
+        for (var i = 0, length = $scope.returnList.length; i < length; i++) {
+          $scope.editingData[$scope.returnList[i]._id] = false;
+        }
+    }).catch(function (err) {
+            return err;
     });
 
     $scope.modify = function(item){

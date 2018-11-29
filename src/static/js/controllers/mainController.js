@@ -1,5 +1,9 @@
 
 app.controller('mainController', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope) {
+
+}]);
+
+app.controller('listController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope, $mdBottomSheet) {
     $rootScope.months = [
         ['jan', 'feb', 'mar', 'apr','may','jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
         ['jan to jun', 'jul to dec'],
@@ -8,31 +12,33 @@ app.controller('mainController', ['$scope', '$rootScope', '$routeParams', functi
         ['jan to mar', 'apr to jun', 'july to sep', 'oct to dec']
     ];
 
-    $scope.changeMonth = function(month, year) {
-        $rootScope.currentMonth = month;
-        $rootScope.currentYear = year;
-    };
-}]);
-
-app.controller('listController', ['$scope', '$http', '$routeParams', '$rootScope', function($scope, $http, $routeParams, $rootScope) {
     $rootScope.monthListNum = $routeParams.monthListNum;
     $rootScope.status = 'all';
     $rootScope.currentMonth = $routeParams.month;
     $rootScope.currentYear = $routeParams.year;
     $scope.type = $routeParams.type;
 
+
+    $scope.roomTypes = [{roomType:'Undone Rooms', status: 'not done'}, {roomType: 'Done Rooms', status:'clean'}, {roomType: 'All Rooms', status: 'all'}];
+
+    $scope.changeMonth = function(month, year) {
+        $rootScope.currentMonth = month;
+        $rootScope.currentYear = year;
+    };
+
     $scope.$watch('currentMonth', function(newV, old) {
         $rootScope.status = 'all';
         $scope.searchItem = '';
         $scope.doneCount = 0;
         $scope.undoneCount = 0;
-        $http.get('/pyList/'+ $routeParams.type + '/' + $routeParams.year + '/' + newV) .success(function(data) {
-            $scope.trial =  data;
+        $scope.showMonthList = false;
+        $http.get('/pyList/'+ $routeParams.type + '/' + $routeParams.year + '/' + newV) .then(function(data) {
+            $scope.trial =  data.data;
             $scope.trial.forEach(function (value) {
                if(value.status === 'clean') $scope.doneCount++;
             });
             $scope.undoneCount = 127 - $scope.doneCount;
-        }).error(function(err) {
+        }).catch(function(err) {
             return err;
         });
     });

@@ -128,19 +128,21 @@
                 <div class="modal-body">
                     <div class="form">
                         <form method="post" action="">
-                            <div class="form-group">
-                                <label for="room_number2">Room #</label>
-                                <input type="number" class="form-control" id="room_number2" name="room_number" autofocus required>
-                            </div>
-                            <div class="form-group">
-                                <label for="item_description2">Item Description</label>
-                                <input type="text" class="form-control" id="item_description2" name="item_description" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="date2">Date</label>
-                                <input type="date" class="form-control" id="date2" name="date" value="{{date}}" required>
-                            </div>
-                            <button type="submit" class="btn btn-danger">Update</button>
+                            <md-content layout-gt-sm="row" layout-padding>
+                                <div>
+                                    <md-input-container>
+                                        <label>Room #</label>
+                                        <input type="number" id="room_number2" name="room_number" ng-model="newRoomNumber" autofocus>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label for="item_description2">Item Description</label>
+                                        <input type="text" id="item_description2" name="item_description" ng-model="newItemDesc">
+                                    </md-input-container>
+                                    <md-datepicker id="date" name="date" md-placeholder="Enter date" ng-model="date"></md-datepicker>
+                                </div>
+                            </md-content>
+                            <hr class="my-4">
+                            <button ng-click="reportNewLostItem()" class="btn btn-danger">Update</button>
                         </form>
                     </div>
                 </div>
@@ -176,7 +178,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="retrurnDate">Return Date</label>
-                                <input type="date" class="form-control" id="retrurnDate" name="retrurnDate" value="{{date}}" required>
+                                <input type="date" class="form-control" id="retrurnDate" name="retrurnDate" value="{[{date | date: 'yyyy-MM-dd'}]}" required>
                             </div>
                             <div class="form-group">
                                 <label for="comments">Comments</label>
@@ -191,7 +193,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 

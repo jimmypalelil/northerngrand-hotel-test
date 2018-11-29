@@ -17,13 +17,7 @@
 
                 <thead class="thead-inverse">
                     <tr>
-                        <th class="text-center">Room #</th>
-                        <th class="text-center">Item Description</th>
-                        <th class="text-center">Guest Name</th>
-                        <th class="text-center">Returned By</th>
-                        <th class="text-center">Date Returned</th>
-                        <th class="text-center">Date Found</th>
-                        <th class="text-center">Comments</th>
+                        <th ng-repeat="(key, value) in returnList[0]" class="text-center" ng-show="key!='_id'">{[{ key | uppercase }]}</th>
                         <th class="text-center">Action</th>
                         {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
                             <th class="text-center">Delete</th>
@@ -31,38 +25,24 @@
                     </tr>
                 </thead>
 
-                <tr class="table-data" ng-repeat="item in returnList | filter: searchItem | orderBy: [sortOrderBy,'return_date']">
-                    <td style="vertical-align:middle;" class="text-center">
-                        <div>{[{item.room_number}]}</div>
+                <tr class="table-data" ng-repeat="row in returnList | filter: searchItem | orderBy: [sortOrderBy,'return_date']">
+                    <td ng-repeat="(key,item) in row" ng-if="key!='_id'">
+                        <p ng-if="key === 'room_number'">{[{ item }]}</p>
+                        <p ng-if="key!== 'room_number'">{[{ item | date | uppercase : ''}]}</p>
                     </td>
-                    <td style="vertical-align:middle;" class="text-center">
-                        <div>{[{item.item_description | uppercase}]}</div>
-                    </td>
-                    <td style="vertical-align:middle;" class="text-center">
-                        <div>{[{item.guest_name | uppercase}]}</div>
-                    </td>
-                    <td style="vertical-align:middle;" class="text-center">
-                        <div>{[{item.returned_by | uppercase}]}</div>
-                    </td>
-                    <td style="vertical-align:middle;" class="text-center">
-                        <div>{[{item.return_date | date}]}</div>
-                    </td>
-                    <td style="vertical-align:middle;" class="text-center">
-                        <div ng-hide="editingData[item._id]">{[{item.date_found | date}]}</div>
-                    </td>
-                    <td style="vertical-align:middle;" class="text-center">
-                        <div> {[{item.comments}]}</div>
-                    </td>
+
                     <td class="text-center">
                     <span>
-                        <button data-target="#updateModal" data-toggle="modal" ng-click="modify(item)" style="cursor: pointer" class="btn btn-primary done-button"><i class="fas fa-edit"></i> Edit</button>
+                        <button data-target="#updateModal" data-toggle="modal" ng-click="modify(row)" class="btn btn-primary tableButton">
+                            <i class="fas fa-edit"></i> <span>Edit</span></button>
                         <hr class="my-2">
-                        <button ng-click="send_info(item._id)" style="cursor: pointer" class="btn btn-warning" data-target="#confirmModal" data-toggle="modal"><i class="fas fa-undo"></i> Undo Return</button>
+                        <button ng-click="send_info(row._id)" class="btn btn-warning tableButton" data-target="#confirmModal" data-toggle="modal">
+                            <i class="fas fa-undo"></i> <span>Undo Return</span></button>
                     </span>
                     </td>
                     {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
                         <td class="text-center">
-                            <button ng-click="send_info(item._id)" style="cursor: pointer" class="btn btn-danger" data-target="#confirmDeleteModal" data-toggle="modal"><i class="far fa-trash-alt"></i></button>
+                            <button ng-click="send_info(row._id)" style="cursor: pointer" class="btn btn-danger" data-target="#confirmDeleteModal" data-toggle="modal"><i class="far fa-trash-alt"></i></button>
                         </td>
                     {% endif %}
                 </tr>

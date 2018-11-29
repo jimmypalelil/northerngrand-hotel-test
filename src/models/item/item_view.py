@@ -16,19 +16,19 @@ item_bp = Blueprint('lost_and_found', __name__)
 @item_bp.route('/', methods=['GET','POST'])
 @user_decorators.requires_login
 def index():
-    if request.method == 'POST':
-        room_number = request.form['room_number'].strip()
-        item_description = request.form['item_description'].strip()
-        date = request.form['date']
-        Item(room_number, item_description, date).insert()
-        return redirect('/lostAndFound/')
+    return render_template('lostAndFound/lostAndFound_home.html', date = dumps(datetime.today().isoformat()))
 
-    return render_template('lostAndFound/lostAndFound_home.html', date= datetime.today().strftime("%Y-%m-%d"))
 
+@item_bp.route('/new/<roomNo>/<itemDesc>/<date>', methods=['GET', 'POST'])
+def reportNew(roomNo, itemDesc, date):
+    date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%fZ')
+    date = datetime.strftime(date, '%Y-%m-%d')
+    Item(roomNo, itemDesc, date).insert()
+    return redirect('.')
 
 @item_bp.route('/returnListView' , methods=['GET', 'POST'])
 def returnListView():
-    return render_template('lostAndFound/ViewReturned.html', date = datetime.today().strftime("%Y-%m-%d"))
+    return render_template('lostAndFound/ViewReturned.html', date = dumps(datetime.today().isoformat()))
 
 
 @item_bp.route('/returnList')

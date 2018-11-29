@@ -1,5 +1,4 @@
 input[id=search] {
-    margin:-10px;
     width: 150px;
     font-family: monospace;
     font-style: oblique;
@@ -23,29 +22,15 @@ input[id=search]:focus {
     outline:none;
 }
 
-.month-cards {
+.month-card {
     display:flex;
-    justify-content: center;
-}
-
-.card {
-    margin: 5px;
-    padding:10px 10px;
-    text-decoration:none;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    padding: 3px;
+    margin:15px;
 }
 
 a:hover {
     text-decoration:none;
-}
-
-.month-view {
-    position:relative;
-    top:70px;
-    left: auto;
 }
 
 .form {
@@ -63,26 +48,6 @@ a:hover {
     color: white;
     position:relative;
     background: purple;
-}
-
-.room-status-clean span {
-    position: relative;
-    top: 7px;
-    background:green;
-    color:white;
-    border:1px solid black;
-    border-radius: 3px;
-    padding: 3px;
-}
-
-.room-status-not-done span {
-    position: relative;
-    top: 7px;
-    background:red;
-    color:white;
-    border:1px solid black;
-    border-radius: 3px;
-    padding: 3px;
 }
 
 .welcome-jumbotron {
@@ -171,8 +136,6 @@ a:hover {
     display:inline-flex;
 }
 
-
-
 .nav-link:hover {
     box-shadow: 0 8px 16px 0 black;
 }
@@ -181,13 +144,12 @@ a:hover {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
 }
 
-.card {
-    color: black !important;
-}
-
-
 .cardFocused {
-    background: black;
+    position:relative;
+    bottom:15px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 5px solid red;
     color: white !important;
 }
 
@@ -195,14 +157,30 @@ th:hover {
     cursor: pointer;
 }
 
+html {
+    background-image: url("/static/images/website-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    margin-top: 100px;
+    margin-bottom: 130px;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-size: cover;
+}
+
 body {
     background-image: url("/static/images/website-background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center; 
-    margin-top: 100px;
-    margin-bottom: 130px;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-size: cover;
 }
+
 
 .report-new-header {
     display:flex;
@@ -242,21 +220,22 @@ body {
 }
 
 .inventory-table td {
-    padding:0rem !important;
-    vertical-align: middle !important;
+    padding:0 !important;
+    vertical-align: center !important;
 }
 
 .inventory-table th {
-    padding: 5px 0rem !important;
+    padding: 5px 0 !important;
     width:5rem !important;
     vertical-align: middle !important;
 }
 
 .room-button-focused {
-    padding: 15px;
-    font-size: 20px;
-    font-weight: bold;
     background-color: black;
+    border-radius: 25px;
+    position: relative;
+    margin-bottom: 15px;
+    border-bottom: 5px solid red;
 }
 
 .inventory-table input, textarea {
@@ -390,12 +369,56 @@ input[type=checkbox] {
     max-width: 0;
     -webkit-transition: max-width 1s;
     transition: max-width 1s;
-    display: inline-block;
-    vertical-align: top;
+    display: inline-flex;
     white-space: nowrap;
     overflow: hidden;
+    vertical-align: middle;
 }
 
 .tableButton:hover span {
   max-width: 7rem;
+}
+
+td {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.month-column{
+    float: left;
+    padding: 7px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 13px;
+    width: 11%;
+    height: 10% !important;
+    overflow: hidden;
+    margin: 10px 0 0 1%;
+    -webkit-transition: height, width 2s;
+    transition: width 1s;
+    transition-delay: .2s;
+}
+
+.month-list {
+    display: none;
+    transition: width 2s, display 2s;
+}
+
+.month-column:hover .month-list {
+    width: 100%;
+    display: inline-flex;
+}
+
+.month-column:hover {
+    position: relative !important;
+    height: 100% !important;
+    width: 20%;
+}
+
+.month-view {
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+.md-datepicker-calendar-pane{
+    z-index: 1200;
 }

@@ -1,13 +1,23 @@
 app.controller('lostController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-    $http.get('./lostList') .success(function(data) {
-        $scope.trial =  data;
+
+    $scope.months = ['jan', 'feb', 'mar', 'apr','may','jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
+    $http.get('./lostList').then(function(response) {
+        $scope.trial =  response.data;
         $scope.editingData = {};
         for (var i = 0, length = $scope.trial.length; i < length; i++) {
           $scope.editingData[$scope.trial[i]._id] = false;
         }
-    }).error(function(err) {
+    }).catch(function(err) {
         return err;
     });
+
+    $scope.date = new Date();
+
+    $scope.reportNewLostItem = function() {
+        var newDate = $scope.date.toJSON();
+        $http.post('/lostAndFound/new/'+ $scope.newRoomNumber + '/' + $scope.newItemDesc + '/' + newDate);
+    };
 
     $scope.send_info = function(item) {
         $scope.itemID = item._id;
@@ -24,9 +34,6 @@ app.controller('lostController', ['$scope', '$http', '$routeParams', function($s
     $scope.confirmEmail = function () {
         $http.post('./emailItem/' + $scope.itemID);
     };
-
-
-
 
     $scope.confirmReturn = function() {
       $http.post('./returnItem/' + $scope.itemID)

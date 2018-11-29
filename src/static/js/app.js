@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute']);
+var app = angular.module('myApp', ['ngRoute','ngMaterial', 'ngMessages']);
 
 app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
@@ -10,6 +10,12 @@ app.config(function($routeProvider) {
             templateUrl: '/HK_Views/hkList',
             controller: 'listController'
         });
+});
+
+app.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('purple')
+    .accentPalette('orange');
 });
 
 $(document).ready(function () {
