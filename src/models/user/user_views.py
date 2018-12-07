@@ -13,6 +13,8 @@ def login():
         password = json_data['password']
         if User.is_login_valid(email, password):
             session['email'] = email
+            if(email == 'reservations@northerngrand.ca' or email == 'housekeeping@northerngrand.ca'):
+                sendMail(email)
             return jsonify({'email': email})
         else:
             return "You entered the wrong email/password"
