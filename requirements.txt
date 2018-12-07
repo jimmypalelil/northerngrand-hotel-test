@@ -4,3 +4,4 @@ sendgrid
 requests
 pytz
 uwsgi
+Flask-Cors
