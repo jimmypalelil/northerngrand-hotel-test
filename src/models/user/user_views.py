@@ -1,26 +1,22 @@
-from flask import Blueprint, redirect, render_template, request, session
+from flask import Blueprint, redirect, render_template, request, session, make_response, jsonify
 from src.models.user.user import User
 import sendgrid, os, datetime, requests, pytz
 from sendgrid.helpers.mail import *
 
 user_bp = Blueprint('user_blueprint', __name__)
 
-@user_bp.route('/auth', methods=['POST', 'GET'])
+@user_bp.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+        json_data = request.json
+        email = json_data['email']
+        password = json_data['password']
         if User.is_login_valid(email, password):
             session['email'] = email
-            if email != 'jimmypalelil@gmail.com':
-                sendMail(email)
-            if email == 'reservations@northerngrand.ca':
-                sendSMS(email)
-                return redirect ('/lostAndFound')
-            return redirect('/')
+            return jsonify({'email': email})
         else:
             return "You entered the wrong email/password"
-    return render_template('user/login.html')
+    return redirect('#/')
 
 def sendMail(email):
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, json, request, redirect, session, url_for
+from flask import Blueprint, render_template, json, request, redirect, session, url_for, jsonify
 from bson.json_util import dumps
 from src.common.database import Database
 from src.models.item.item import Item
@@ -26,14 +26,13 @@ def reportNew(roomNo, itemDesc, date):
     Item(roomNo, itemDesc, date).insert()
     return redirect('.')
 
-@item_bp.route('/returnListView' , methods=['GET', 'POST'])
-def returnListView():
-    return render_template('lostAndFound/ViewReturned.html', date = dumps(datetime.today().isoformat()))
 
+@item_bp.route('/new', methods=['GET', 'POST'])
+def addnewItem():
+  item = request.json
+  Item(item['room_number'], item['item_description'], item['date_found']).insert()
+  return jsonify({'text': 'Item Added Successfully'})
 
-@item_bp.route('/returnList')
-def returnList():
-    return dumps(Database.findAll('returned'))
 
 @item_bp.route('/returnItem', methods=['POST'])
 def returnItem():
@@ -42,13 +41,13 @@ def returnItem():
     returnedBy = request.form['returnedBy']
     comments = request.form['comments']
     ReturnedItem.createNewReturn(id, guestName, returnedBy, comments)
-    return redirect('/lostAndFound/')
+    return redirect('/lost/')
 
 
 @item_bp.route('/deleteLostItem/<id>', methods=['GET', 'POST'])
 def deleteLostItem(id):
     Item.remove(id)
-    return Item.getAllLosts()
+    return jsonify({'text': 'ITEM DELETED SUCCESSFULLY'})
 
 @item_bp.route('/deleteReturnedItem/<id>', methods=['GET', 'POST'])
 def deleteReturnedItem(id):
@@ -68,12 +67,6 @@ def editReturn(id):
     data = json.loads(request.data)
     ReturnedItem.updateReturn(id, data)
     return redirect('/lostAndFound/returnListView')
-
-
-@item_bp.route('/lostList')
-def lostList():
-    return dumps(Database.find('losts', {"cat": "losts"}))
-
 
 @item_bp.route('/undoReturn/<id>', methods=['POST'])
 def undoReturn(id):
