@@ -1,6 +1,5 @@
 from flask import Blueprint, request, render_template, redirect, make_response, jsonify
 from bson.json_util import dumps
-from src.models.room import room
 
 from src.common.database import Database
 

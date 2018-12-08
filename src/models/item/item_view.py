@@ -30,7 +30,7 @@ def reportNew(roomNo, itemDesc, date):
 @item_bp.route('/new', methods=['GET', 'POST'])
 def addnewItem():
   item = request.json
-  Item(item['room_number'], item['item_description'], item['date_found']).insert()
+  Item(item['room_number'], item['item_description'], item['date']).insert()
   return jsonify({'text': 'Item Added Successfully'})
 
 
