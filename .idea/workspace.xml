@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d9a3fe9-94cf-466f-b6e3-8c391437913c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/static/app/assets/images/banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/app/assets/images/login.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/app/assets/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/app/3rdpartylicenses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/3rdpartylicenses.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/app/main.dc449fdd0d67308592ed.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,24 +97,24 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="3" />
-          <entry key="html" value="7" />
+          <entry key="html" value="9" />
           <entry key="ini" value="1" />
           <entry key="jpg" value="2" />
-          <entry key="js" value="1" />
+          <entry key="js" value="3" />
           <entry key="png" value="4" />
-          <entry key="py" value="16" />
+          <entry key="py" value="18" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="3" />
-          <entry key="HTML" value="7" />
+          <entry key="HTML" value="9" />
           <entry key="Image" value="6" />
           <entry key="Ini" value="1" />
-          <entry key="JavaScript" value="1" />
+          <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="16" />
+          <entry key="Python" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -113,7 +122,7 @@
           <entry key="css" value="47" />
           <entry key="html" value="82" />
           <entry key="ini" value="3" />
-          <entry key="js" value="1" />
+          <entry key="js" value="2" />
           <entry key="py" value="100" />
           <entry key="txt" value="44" />
         </counts>
@@ -123,7 +132,7 @@
           <entry key="CSS" value="47" />
           <entry key="HTML" value="82" />
           <entry key="Ini" value="3" />
-          <entry key="JavaScript" value="1" />
+          <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="44" />
           <entry key="Python" value="100" />
         </counts>
@@ -132,24 +141,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/runtime.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/uwsgi.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -160,28 +151,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/templates/index.html">
+        <entry file="file://$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/static/app/main.7395183c887db8dd6650.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22508">
-              <caret column="1324088" selection-start-column="1324088" selection-end-column="1324088" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="171">
+              <caret column="1426360" selection-start-column="1426353" selection-end-column="1426360" />
             </state>
           </provider>
         </entry>
@@ -199,6 +172,7 @@
     <findStrings>
       <find>month-col</find>
       <find>northern</find>
+      <find>norther</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -232,6 +206,8 @@
         <option value="$PROJECT_DIR$/src/models/user/user_views.py" />
         <option value="$PROJECT_DIR$/src/templates/index.html" />
         <option value="$PROJECT_DIR$/src/static/app/main.7395183c887db8dd6650.js" />
+        <option value="$PROJECT_DIR$/src/static/app/main.dc449fdd0d67308592ed.js" />
+        <option value="$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js" />
       </list>
     </option>
   </component>
@@ -355,6 +331,25 @@
               <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -369,14 +364,14 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\hotel-maintenance\src\models\HK_Models" />
-      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\hotel-maintenance\src\templates\HK" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test" />
       <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test\src" />
       <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test\src\static\app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\hotel-maintenance\src\models\HK_Models" />
+      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\hotel-maintenance\src\templates\HK" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -567,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544232857589</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Switched to Angular 7">
+      <created>1544675848247</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1544675848247</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -624,13 +626,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Switched to Angular 7" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/models/HK_Models/bedding/bedding_mongo.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/months/months_view.py" />
-    <entry file="file://$PROJECT_DIR$/src/models/HK_Models/mattress/mattress_mongo.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/HK_Models/pillows/pillows.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -843,13 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/static/app/main.7395183c887db8dd6650.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22508">
@@ -867,10 +855,34 @@
     <entry file="file://$PROJECT_DIR$/src/src/app.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/static/app/main.dc449fdd0d67308592ed.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret column="1302885" selection-start-column="1302877" selection-end-column="1302885" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret column="1426360" selection-start-column="1426353" selection-end-column="1426360" />
         </state>
       </provider>
     </entry>
