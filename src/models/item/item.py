@@ -35,6 +35,9 @@ class Item(object):
     def insert(self):
         Database.insert('losts', self.json())
 
+    def insertOne(self):
+        Database.insertOne('losts', self.json())
+
     @classmethod
     def remove(cls, id):
         Database.remove('losts', {"_id": id})

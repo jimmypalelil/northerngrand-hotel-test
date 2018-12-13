@@ -20,6 +20,10 @@ class Database(object):
     Database.DATABASE[collection].insert(data)
 
   @staticmethod
+  def insertOne(collection, data):
+    Database.DATABASE[collection].insert_one(data)
+
+  @staticmethod
   def findAll(collection):
     return Database.DATABASE[collection].find()
 
