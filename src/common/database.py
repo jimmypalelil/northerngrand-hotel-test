@@ -21,7 +21,11 @@ class Database(object):
 
   @staticmethod
   def insertOne(collection, data):
+<<<<<<< HEAD
     return Database.DATABASE[collection].insert_one(data)
+=======
+    Database.DATABASE[collection].insert_one(data)
+>>>>>>> 2c6c81573d291e45e059fc6c4a871787a23ebd60
 
   @staticmethod
   def findAll(collection):

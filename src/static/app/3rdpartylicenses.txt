@@ -545,10 +545,13 @@ THE SOFTWARE.
 @angular/router
 MIT
 
+<<<<<<< HEAD
 @angular/material/core
 
 @angular/material/list
 
+=======
+>>>>>>> 2c6c81573d291e45e059fc6c4a871787a23ebd60
 @angular/material/menu
 
 @angular/material/button-toggle
@@ -563,10 +566,13 @@ MIT
 
 @angular/material/form-field
 
+<<<<<<< HEAD
 @angular/material/radio
 
 @angular/material/select
 
+=======
+>>>>>>> 2c6c81573d291e45e059fc6c4a871787a23ebd60
 core-js
 MIT
 Copyright (c) 2014-2018 Denis Pushkarev

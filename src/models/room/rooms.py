@@ -142,7 +142,11 @@ def run():
     print("hi")
     for rom in rooms1:
         if rom.__class__ is room:
+<<<<<<< HEAD
             rom.save_to_mongo()
 
 
 run()
+=======
+            rom.save_to_mongo()
+>>>>>>> 2c6c81573d291e45e059fc6c4a871787a23ebd60
