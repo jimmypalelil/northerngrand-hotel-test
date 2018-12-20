@@ -12,7 +12,7 @@ class ReturnedItem(object):
         self.guest_name = guest_name
         self.item_description = item_description
         self.returned_by = returned_by
-        self.return_date = datetime.datetime.today().strftime('%Y-%m-%d')
+        self.return_date = return_date
         self.date_found = date_found
         self.comments = comments
         self._id = uuid.uuid4().hex if _id is None else _id
@@ -58,10 +58,10 @@ class ReturnedItem(object):
         Database.remove(collection, {"_id": id})
 
     @classmethod
-    def createNewReturn(cls, id, guestName, returnedBy, comments):
+    def createNewReturn(cls, id, guestName, returnedBy, return_date, comments):
         item = Item.get_by_item_id(id)
         Item.remove(id)
-        ReturnedItem(item.room_number, guestName, item.item_description, returnedBy, item.date, comments, item._id).insert()
+        ReturnedItem(item.room_number, guestName, item.item_description, returnedBy, item.date, comments, return_date, item._id).insert()
 
     @staticmethod
     def getAllReturned():

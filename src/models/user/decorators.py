@@ -10,12 +10,11 @@ def requires_login(f):
     def decorated_function(*args, **kwargs):
         if 'email' not in session.keys() or session['email'] is None:
             flash(u'You need to be signed in for this page.')
-            return redirect(url_for('user_blueprint.login', next=request.path))
+            return redirect('/#/login')
         elif session['email'] == 'reservations@northerngrand.ca':
-            message = ''
+            print(request.path)
             if request.path != '/lostAndFound/':
-                message = 'Access to Housekeeping Only'
-                return render_template('user/login.html', message=message)
-            return render_template('lostAndFound/lostAndFound_home.html')
+                return redirect('/#/login')
+            return redirect('/#/lost')
         return f(*args, **kwargs)
     return decorated_function
