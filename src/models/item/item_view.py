@@ -36,7 +36,6 @@ def addnewItem():
 
 @item_bp.route('/returnItem', methods=['POST'])
 def returnItem():
-<<<<<<< HEAD
     item = request.json
     id = item['_id']
     guestName = item['guest_name']
@@ -45,14 +44,6 @@ def returnItem():
     comments = item['comments']
     ReturnedItem.createNewReturn(id, guestName, returnedBy, returnDate, comments)
     return jsonify({'text': 'Item was Successfully Added To Returned List'})
-=======
-    id = request.form['itemID']
-    guestName = request.form['guestName']
-    returnedBy = request.form['returnedBy']
-    comments = request.form['comments']
-    ReturnedItem.createNewReturn(id, guestName, returnedBy, comments)
-    return redirect('/lost/')
->>>>>>> 2c6c81573d291e45e059fc6c4a871787a23ebd60
 
 
 @item_bp.route('/deleteLostItem/<id>', methods=['GET', 'POST'])
@@ -79,18 +70,11 @@ def editReturn(id):
     ReturnedItem.updateReturn(id, data)
     return redirect('/lostAndFound/returnListView')
 
-<<<<<<< HEAD
 @item_bp.route('/undoReturn', methods=['POST'])
 def undoReturn():
     item = request.json
     ReturnedItem.deleteReturn(item['_id'])
     return jsonify({'text': 'Item has been Successfully placed back in Lost & Found'})
-=======
-@item_bp.route('/undoReturn/<id>', methods=['POST'])
-def undoReturn(id):
-    ReturnedItem.deleteReturn(id)
-    return (ReturnedItem.getAllReturned())
->>>>>>> 2c6c81573d291e45e059fc6c4a871787a23ebd60
 
 
 @item_bp.route('/email', methods=['POST'])
