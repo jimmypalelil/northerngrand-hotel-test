@@ -36,11 +36,14 @@ class InspectionEmployee(object):
     def remove(cls, id):
         Database.remove(collection, {"_id": id})
 
+    @classmethod
+    def remove_by_insId(cls, insId):
+        Database.remove(collection, {"insId": insId})
 
     @classmethod
     def updateEmployee(cls, id, data):
         Database.update(collection, {"_id": id}, data)
 
     @staticmethod
-    def getAllEmployees():
-        return dumps(Database.findAll(collection))
+    def getAllEmployees(insId):
+        return dumps(Database.find(collection, {"insId": insId}))

@@ -36,6 +36,9 @@ class InspectionScore(object):
     def remove(cls, id):
         Database.remove(collection, {"_id": id})
 
+    @classmethod
+    def remove_by_insId(cls, insId):
+        Database.remove(collection, {"insId": insId})
 
     @classmethod
     def updateEmployee(cls, id, data):

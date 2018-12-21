@@ -1,15 +1,19 @@
+from bson.json_util import dumps
+
 from src.common.database import Database
 from src.models.Inspection import createEmployees
 from src.models.Inspection.employee import Employee
 from src.models.Inspection.inspectionItem import InspectionItem
+from src.models.Inspection.score import Score
 
 Database.go()
 
 def createInsItems():
-    items = ['Just Checking', 'room', 'washroom']
+    items = [["just checking ", "window"], ["all coffee pods in ", "coffee station"],
+             ["sink", "washroom"], ["toilet bowl", "washroom"]]
 
     for item in items:
-        InspectionItem(item).insert()
+        InspectionItem(item[0], item[1]).insert()
 
 # createInsItems()
 
@@ -29,7 +33,5 @@ def resetInspections():
     Database.DATABASE['ins_items'].drop()
     createEmployees.createEmployees()
     createInsItems()
-
-
 
 # resetEmployees()

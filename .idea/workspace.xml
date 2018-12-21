@@ -2,15 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d9a3fe9-94cf-466f-b6e3-8c391437913c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/static/app/assets/images/banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/app/assets/images/login.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/app/assets/images/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Inspection/createInsItem.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/createInsItem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Inspection/employee.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/employee.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspection.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspectionEmployee.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspectionEmployee.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspectionItem.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspectionItem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspectionScore.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspectionScore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspection_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspection_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Inspection/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/score.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/app/3rdpartylicenses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/3rdpartylicenses.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/app/arrow_left.270f72df47e036d9cfa1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/arrow_left.270f72df47e036d9cfa1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/app/arrow_right.d9ccc77c8240ad0dc272.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/arrow_right.d9ccc77c8240ad0dc272.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/app/fontawesome-webfont.912ec66d7572ff821749.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/fontawesome-webfont.912ec66d7572ff821749.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/main.dc449fdd0d67308592ed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/app/main.cebffd79c731adb3543a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/app/styles.9d248beec35ae5dd00a0.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/styles.9d248beec35ae5dd00a0.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -138,6 +145,24 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1760179254">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -145,16 +170,25 @@
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js">
+        <entry file="file://$PROJECT_DIR$/src/static/app/main.d01bb82fdbccc686b618.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret column="1426360" selection-start-column="1426353" selection-end-column="1426360" />
+            <state relative-caret-position="206">
+              <caret column="781227" selection-start-column="781227" selection-end-column="781227" />
             </state>
           </provider>
         </entry>
@@ -208,6 +242,7 @@
         <option value="$PROJECT_DIR$/src/static/app/main.7395183c887db8dd6650.js" />
         <option value="$PROJECT_DIR$/src/static/app/main.dc449fdd0d67308592ed.js" />
         <option value="$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js" />
+        <option value="$PROJECT_DIR$/src/static/app/main.d01bb82fdbccc686b618.js" />
       </list>
     </option>
   </component>
@@ -358,7 +393,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hotel-maintenance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -585,7 +620,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19402985" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19616205" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -626,9 +661,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Switched to Angular 7" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/models/HK_Models/pillows/pillows.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/HK_Models/carpet_shampoo/carpet_shampoo_mongo.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -838,13 +870,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/static/app/main.7395183c887db8dd6650.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22508">
-          <caret column="1324088" selection-start-column="1324088" selection-end-column="1324088" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/static/app/main.7395183c887db8dd6650.js" />
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -852,11 +878,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/src/app.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/app.py" />
     <entry file="file://$PROJECT_DIR$/src/templates/home.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/static/app/main.dc449fdd0d67308592ed.js" />
+    <entry file="file://$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js" />
+    <entry file="file://$PROJECT_DIR$/src/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -865,24 +898,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/static/app/main.dc449fdd0d67308592ed.js">
+    <entry file="file://$PROJECT_DIR$/src/static/app/main.d01bb82fdbccc686b618.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret column="1302885" selection-start-column="1302877" selection-end-column="1302885" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret column="1426360" selection-start-column="1426353" selection-end-column="1426360" />
+        <state relative-caret-position="206">
+          <caret column="781227" selection-start-column="781227" selection-end-column="781227" />
         </state>
       </provider>
     </entry>

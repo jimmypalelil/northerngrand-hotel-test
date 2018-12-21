@@ -6,13 +6,15 @@ from src.common.database import Database
 collection = 'ins_items'
 
 class InspectionItem(object):
-    def __init__(self, item,_id=None):
+    def __init__(self, item, cat,_id=None):
         self.item = item
+        self.cat = cat
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def json(self):
         return {
             "item": self.item,
+            "cat": self.cat,
             "_id": self._id
         }
 
@@ -38,3 +40,13 @@ class InspectionItem(object):
     @staticmethod
     def getAllItems():
         return dumps(Database.findAll(collection))
+
+    @staticmethod
+    def getAllItemsByGroup():
+        pipeline = [{
+            "$group": {
+                "_id": {"cat": "$cat"},
+                "items": {"$push": "$$ROOT"}
+            }
+        }]
+        return dumps(Database.DATABASE[collection].aggregate(pipeline))

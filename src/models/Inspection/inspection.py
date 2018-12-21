@@ -75,5 +75,12 @@ class Inspection(object):
                 'foreignField': "_id",
                 'as': "inspection"
             }
+        }, {
+            "$unwind": "$inspection"
+        }, {
+            "$group": {
+                "_id": "$inspection.cat",
+                "items": { "$push": "$$ROOT"}
+            }
         }]
         return dumps(Database.DATABASE[collection].aggregate(pipeline))

@@ -8,9 +8,6 @@ from src.models.Inspection.inspectionEmployee import InspectionEmployee
 from src.models.Inspection.inspectionItem import InspectionItem
 from src.models.Inspection.inspectionScore import InspectionScore
 from src.models.Inspection.score import Score
-from src.models.item.item import Item
-from src.models.item.returnedItem import ReturnedItem
-from datetime import datetime
 
 import sendgrid, os
 from sendgrid.helpers.mail import *
@@ -36,7 +33,7 @@ def startNewInspection():
     newId = Inspection(roomNum, day, month, year, 0).insertOne()
     for id in ids:
         InspectionEmployee(newId.inserted_id, id).insert()
-    insItems = InspectionItem.getAllItems()
+    insItems = InspectionItem.getAllItemsByGroup()
     return jsonify({'id': newId.inserted_id}, insItems)
 
 
@@ -105,3 +102,15 @@ def getInpsection():
     month = inspection['month']
     year = inspection['year']
     return Inspection.getInspectionItems(insId, day, month, year)
+
+
+@inspection_bp.route('/deleteInspection/<insId>/<month>')
+def deleteInspection(insId, month):
+    Inspection.remove(insId)
+    insEmps = Database.DATABASE['ins_employees'].find({"insId": insId})
+    for emp in insEmps:
+        Employee.calculateMonthlyAvg(emp['empId'], month)
+        Employee.calculateAllAvg(emp['empId'])
+    InspectionEmployee.remove_by_insId(insId)
+    InspectionScore.remove_by_insId(insId)
+    return jsonify({"text": "Inspection Deleted"})
