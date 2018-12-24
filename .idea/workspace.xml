@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d9a3fe9-94cf-466f-b6e3-8c391437913c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/static/app/main.0f1cb3a8ee02eb1083af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/app/styles.85680b07ee522517d20c.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Inspection/createInsItem.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/createInsItem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Inspection/employee.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/employee.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspection.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspectionEmployee.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspectionEmployee.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspectionItem.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspectionItem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspectionScore.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspectionScore.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Inspection/inspection_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/inspection_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Inspection/score.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Inspection/score.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/app/3rdpartylicenses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/3rdpartylicenses.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/app/arrow_left.270f72df47e036d9cfa1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/arrow_left.270f72df47e036d9cfa1.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/app/arrow_right.d9ccc77c8240ad0dc272.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/arrow_right.d9ccc77c8240ad0dc272.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/app/fontawesome-webfont.912ec66d7572ff821749.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/fontawesome-webfont.912ec66d7572ff821749.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/static/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/main.cebffd79c731adb3543a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/styles.9d248beec35ae5dd00a0.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/app/styles.9d248beec35ae5dd00a0.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/app/main.d01bb82fdbccc686b618.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,9 +20,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/northerngrand_hotel_test$hotel_maintenance.coverage" NAME="hotel-maintenance Coverage Results" MODIFIED="1542851229351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hotel_maintenance$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1539487951458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/hotel_maintenance$hotel_maintenance.coverage" NAME="hotel-maintenance Coverage Results" MODIFIED="1539549442484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/northerngrand_hotel_test$hotel_maintenance.coverage" NAME="hotel-maintenance Coverage Results" MODIFIED="1542851229351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hotel_maintenance$Flask__src_app_py_.coverage" NAME="Flask (src/app.py) Coverage Results" MODIFIED="1539486422531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FUSProjectUsageTrigger">
@@ -163,6 +156,24 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1789688977">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -175,20 +186,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/static/app/main.d01bb82fdbccc686b618.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret column="781227" selection-start-column="781227" selection-end-column="781227" />
+            <state relative-caret-position="119">
+              <caret line="7" column="94" selection-start-line="7" selection-start-column="94" selection-end-line="7" selection-end-column="94" />
             </state>
           </provider>
         </entry>
@@ -238,11 +240,11 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/uwsgi.ini" />
         <option value="$PROJECT_DIR$/src/models/user/user_views.py" />
-        <option value="$PROJECT_DIR$/src/templates/index.html" />
         <option value="$PROJECT_DIR$/src/static/app/main.7395183c887db8dd6650.js" />
         <option value="$PROJECT_DIR$/src/static/app/main.dc449fdd0d67308592ed.js" />
         <option value="$PROJECT_DIR$/src/static/app/main.f05ddda3ab6214cbe427.js" />
         <option value="$PROJECT_DIR$/src/static/app/main.d01bb82fdbccc686b618.js" />
+        <option value="$PROJECT_DIR$/src/templates/index.html" />
       </list>
     </option>
   </component>
@@ -253,16 +255,71 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1937" />
+    <option name="height" value="1057" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -354,41 +411,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,14 +421,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test" />
-      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test\src" />
-      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test\src\static\app" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\hotel-maintenance\src\models\HK_Models" />
       <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\hotel-maintenance\src\templates\HK" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jimmy\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test\src\static\app" />
+      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test" />
+      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test\src" />
+      <recent name="F:\Documents\OneDrive\Coding Projects\Python Projects\northerngrand-hotel-test\src\static\app" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -617,10 +640,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19616205" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19865772" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -634,7 +657,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.30227518" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" visible="true" weight="0.30227518" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" visible="true" weight="0.30169973" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32936078" />
       <window_info active="true" anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32936078" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -891,17 +914,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/static/app/main.d01bb82fdbccc686b618.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret column="781227" selection-start-column="781227" selection-end-column="781227" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="94" selection-start-line="7" selection-start-column="94" selection-end-line="7" selection-end-column="94" />
         </state>
       </provider>
     </entry>

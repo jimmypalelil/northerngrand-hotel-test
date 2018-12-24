@@ -563,6 +563,8 @@ MIT
 
 @angular/material/form-field
 
+@angular/material/progress-spinner
+
 @angular/material/radio
 
 @angular/material/select
