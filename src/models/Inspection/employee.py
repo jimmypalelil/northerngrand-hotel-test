@@ -133,7 +133,7 @@ class Employee(object):
             totalscore += score
             count += 1
         if count == 0:
-            Score.remove_by_empId_and_month(empID, month)
+            Score.remove_by_empId_and_month_and_year(empID, month, year)
         else:
             avgScore = totalscore / count
             empScore = Score(**Score.get_by_emp_id(empID, month))
