@@ -74,7 +74,7 @@ def createInspectionResult():
             empScoreData = Score(**empScore)
             empScoreData.score = (float(empScoreData.score) + float(inspection.score)) / 2.0
             empScoreData.num_inspections += 1
-            Score.updateScore(employee['empId'], inspection.month, empScoreData.json())
+            Score.updateScore(employee['empId'], inspection.month, inspection.score, empScoreData.json())
     return jsonify({'text': 'Inspection Recorded'})
 
 
@@ -104,13 +104,28 @@ def getInpsection():
     return Inspection.getInspectionItems(insId, day, month, year)
 
 
-@inspection_bp.route('/deleteInspection/<insId>/<month>')
-def deleteInspection(insId, month):
+@inspection_bp.route('/deleteInspection/<insId>/<month>/<year>')
+def deleteInspection(insId, month, year):
     Inspection.remove(insId)
     insEmps = Database.DATABASE['ins_employees'].find({"insId": insId})
     for emp in insEmps:
-        Employee.calculateMonthlyAvg(emp['empId'], month)
+        Employee.calculateMonthlyAvg(emp['empId'], month, year)
         Employee.calculateAllAvg(emp['empId'])
     InspectionEmployee.remove_by_insId(insId)
     InspectionScore.remove_by_insId(insId)
     return jsonify({"text": "Inspection Deleted"})
+
+
+@inspection_bp.route('/deleteMonthlyInspections/<empID>', methods=['POST'])
+def deleteMonthlyInspections(empID):
+    data = request.json
+    month = data['month']
+    year = data['year']
+    Score.remove_by_month_and_year(month, year)
+    inspections = Inspection.get_by_month_and_year(month, year)
+    Inspection.remove_by_month_and_year(month, year)
+    for ins in inspections:
+        InspectionScore.remove_by_insId(ins['_id'])
+        InspectionEmployee.remove_by_insId(ins['_id'])
+    Employee.calculateAvgForAllEmployees(month, year)
+    return jsonify({"text": "Inspections Deleted"})

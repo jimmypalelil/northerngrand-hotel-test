@@ -31,12 +31,20 @@ class Inspection(object):
     def get_by_id(cls, id):
         return cls(**Database.find_one(collection, {"_id": id}))
 
+    @classmethod
+    def get_by_month_and_year(cls, month, year):
+        return Database.find(collection, {"month": month, "year": year})
+
     def insert(self):
         Database.insert(collection, self.json())
 
     @classmethod
     def remove(cls, id):
-        Database.remove(collection, {"_id": id})
+        Database.remove(collection, {"_id": id})\
+
+    @classmethod
+    def remove_by_month_and_year(cls, month, year):
+        Database.remove(collection, {"month": month, "year": year})
 
 
     @classmethod

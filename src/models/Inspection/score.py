@@ -46,9 +46,13 @@ class Score(object):
     def remove_by_empId_and_month(cls, empId, month):
         Database.remove(collection, {"empId": empId, "month": month})
 
+    @classmethod
+    def remove_by_month_and_year(cls, month, year):
+        Database.remove(collection, {"month": month, "year": year})
+
 
     @classmethod
-    def updateScore(cls, empId, month, data):
+    def updateScore(cls, empId, month, year, data):
         Database.update(collection, {"empId": empId, "month": month}, data)
 
     @staticmethod

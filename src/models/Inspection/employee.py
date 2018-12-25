@@ -94,7 +94,7 @@ class Employee(object):
 
 
     @classmethod
-    def calculateMonthlyAvg(cls, empID, month):
+    def calculateMonthlyAvg(cls, empID, month, year):
         pipeline = [{
             "$match": {
                 "_id": empID
@@ -117,7 +117,8 @@ class Employee(object):
             "$unwind": "$inspections"
         }, {
             "$match": {
-                "inspections.month": month
+                "inspections.month": month,
+                "inspections.year": year
             }
         }, {
             "$project": {
@@ -138,7 +139,7 @@ class Employee(object):
             empScore = Score(**Score.get_by_emp_id(empID, month))
             empScore.score = avgScore
             empScore.num_inspections = empScore.num_inspections - 1
-            Score.updateScore(empID, month, empScore.json())
+            Score.updateScore(empID, month, year, empScore.json())
 
     @classmethod
     def calculateAllAvg(cls, empID):
@@ -179,3 +180,11 @@ class Employee(object):
         else:
             avg_score = totalscore / count
             Employee.updateEmployeeScore(empID, avg_score, count)
+
+
+    @classmethod
+    def calculateAvgForAllEmployees(cls, month, year):
+        emps = Database.findAll(collection)
+        for emp in emps:
+            Employee.calculateMonthlyAvg(emp['_id'],month, year)
+            Employee.calculateAllAvg(emp['_id'])
