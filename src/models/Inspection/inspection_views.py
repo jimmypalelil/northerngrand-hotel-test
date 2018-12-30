@@ -74,7 +74,7 @@ def createInspectionResult():
             empScoreData = Score(**empScore)
             empScoreData.score = (float(empScoreData.score) + float(inspection.score)) / 2.0
             empScoreData.num_inspections += 1
-            Score.updateScore(employee['empId'], inspection.month, inspection.score, empScoreData.json())
+            empScoreData.save_to_mongo()
     return jsonify({'text': 'Inspection Recorded'})
 
 
@@ -123,9 +123,9 @@ def deleteMonthlyInspections(empID):
     year = data['year']
     Score.remove_by_month_and_year(month, year)
     inspections = Inspection.get_by_month_and_year(month, year)
-    Inspection.remove_by_month_and_year(month, year)
     for ins in inspections:
         InspectionScore.remove_by_insId(ins['_id'])
         InspectionEmployee.remove_by_insId(ins['_id'])
+    Inspection.remove_by_month_and_year(month, year)
     Employee.calculateAvgForAllEmployees(month, year)
     return jsonify({"text": "Inspections Deleted"})
