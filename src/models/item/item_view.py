@@ -64,11 +64,11 @@ def edit(id):
     return redirect('/lostAndFound/')
 
 
-@item_bp.route('/editReturn/<id>', methods=['GET','POST'])
-def editReturn(id):
-    data = json.loads(request.data)
-    ReturnedItem.updateReturn(id, data)
-    return redirect('/lostAndFound/returnListView')
+@item_bp.route('/updateItem', methods=['POST'])
+def editReturn():
+    item = request.json
+    Item.update(item['_id'], item)
+    return jsonify({'text': 'ITEM WAS UPDATED SUCCESSFULLY'})
 
 @item_bp.route('/undoReturn', methods=['POST'])
 def undoReturn():
