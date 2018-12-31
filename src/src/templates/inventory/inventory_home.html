@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="{{url_for('static', filename='js/controllers/inventoryController.js')}}"></script>
+
+<div class="container">
+    <div ng-view></div>
+</div>
+
+{% endblock %}
+

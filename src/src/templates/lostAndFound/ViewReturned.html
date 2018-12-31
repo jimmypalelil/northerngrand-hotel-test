@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% block content %}
+<script src="{{url_for('static', filename='js/controllers/returnController.js')}}"></script>
+
+<div class="for-teddy" ng-app="myApp" ng-controller="returnController">
+    <div class="container">
+        <span class="lost-title">
+            <h5 class="lost-title-text display-5">   Returned Items</h5>
+        </span>
+        <hr class="my-4">
+        <span><input ng-model="searchItem" id="search" name="search" placeholder="Search... By room number, item or date"></span>
+        <hr class="my-3">
+            <a type="button" href="/lostAndFound" class="btn btn-primary"><i class="fas fa-arrow-circle-left"></i> Lost and Found</a>
+        <hr class="my-3">
+        <div class="lost-content">
+            <table class="table table-bordered table-striped lost-table">
+
+                <thead class="thead-inverse">
+                    <tr>
+                        <th ng-repeat="(key, value) in returnList[0]" class="text-center" ng-show="key!='_id'">{[{ key | uppercase }]}</th>
+                        <th class="text-center">Action</th>
+                        {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
+                            <th class="text-center">Delete</th>
+                        {%  endif %}
+                    </tr>
+                </thead>
+
+                <tr class="table-data" ng-repeat="row in returnList | filter: searchItem | orderBy: [sortOrderBy,'return_date']">
+                    <td ng-repeat="(key,item) in row" ng-if="key!='_id'">
+                        <p ng-if="key === 'room_number'">{[{ item }]}</p>
+                        <p ng-if="key!== 'room_number'">{[{ item | date | uppercase : ''}]}</p>
+                    </td>
+
+                    <td class="text-center">
+                    <span>
+                        <button data-target="#updateModal" data-toggle="modal" ng-click="modify(row)" class="btn btn-primary tableButton">
+                            <i class="fas fa-edit"></i> <span>Edit</span></button>
+                        <hr class="my-2">
+                        <button ng-click="send_info(row._id)" class="btn btn-warning tableButton" data-target="#confirmModal" data-toggle="modal">
+                            <i class="fas fa-undo"></i> <span>Undo Return</span></button>
+                    </span>
+                    </td>
+                    {% if session['email'] == 'housekeeping@northerngrand.ca' or session['email'] == 'jimmypalelil@gmail.com' %}
+                        <td class="text-center">
+                            <button ng-click="send_info(row._id)" style="cursor: pointer" class="btn btn-danger" data-target="#confirmDeleteModal" data-toggle="modal"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                    {% endif %}
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm UNDO</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you wanna UNDO this Return Entry?
+            <br>
+            (Note: This Item Entry will be placed back in 'Lost And Found')
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button data-dismiss="modal" type="button" ng-click="confirmButton()"  class="btn btn-danger">UNDO</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you wanna DELETE this Return Entry?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button data-dismiss="modal" type="button" ng-click="confirmDeleteButton()"  class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="updateModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Return Item</h4>
+                    <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form">
+                        <form method="post" action="">
+                            <div class="form-group">
+                                <label for="guestName">Guest Name</label>
+                                <input type="text" class="form-control" id="guestName" name="guestName" ng-model="ITEM.guest_name" value="{[{ITEM.guest_name}]}" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label for="room_no">Room #</label>
+                                <input type="text" class="form-control" id="room_no" name="room_no" ng-model="ITEM.room_number" value="{[{ITEM.room_number}]}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="item_description2">Item Description</label>
+                                <input type="text" class="form-control" id="item_description2" name="item_description" ng-model="ITEM.item_description" value="{[{ITEM.item_description}]}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="returnedBy">Returned By</label>
+                                <input type="text" class="form-control" id="returnedBy" name="returnedBy" ng-model="ITEM.returned_by" value="{[{ITEM.returned_by}]}"  required>
+                            </div>
+                            <div class="form-group">
+                                <label for="retrurnDate">Returned Date</label>
+                                <input type="text" class="form-control" id="retrurnDate" name="retrurnDate" ng-model="ITEM.return_date" value="{[{ITEM.return_date}]}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dateFound">Date Found</label>
+                                <input class="form-control" id="dateFound" name="dateFound" ng-model="ITEM.date_found" value="{[{ITEM.date_found }]}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="comments">Comments</label>
+                                <textarea class="form-control" id="comments" name="comments" ng-model="ITEM.comments">{[{ITEM.comments}]}</textarea>
+                            </div>
+                            <button class="btn btn-success" ng-click="update()">Update</button>
+                            <button data-dismiss="modal" class="btn btn-danger">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}
