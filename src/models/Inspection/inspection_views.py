@@ -105,15 +105,11 @@ def delete_inspection():
     inspection = data['inspection']
     ins_id = inspection['_id']
     emp_id = data['emp_id']
-    num_monthly_inspections = int(data['num_month_ins'])
 
     total_emps = (json.loads(dumps(Inspection.get_ins_emp_count(ins_id))))[0]['total']
     score_to_deduct = inspection['score'] * -1
     Employee.update_emp_score(emp_id, score_to_deduct, -1)
-    if num_monthly_inspections > 1:
-        Employee.calculate_emp_monthly_avg(emp_id, inspection['month'], inspection['year'], score_to_deduct, -1)
-    else:
-        EmployeeMonthlyScore.remove_by_emp_id_and_month_and_year(emp_id, inspection['month'], inspection['year'])
+    Employee.calculate_emp_monthly_avg(emp_id, inspection['month'], inspection['year'], score_to_deduct, -1)
 
     if total_emps == 1:
         Inspection.remove(ins_id)
