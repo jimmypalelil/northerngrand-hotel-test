@@ -2,14 +2,15 @@ import uuid
 
 from bson.json_util import dumps
 from src.common.database import Database
-from src.models.Inspection.score import Score
+from src.models.Inspection.employeemonthlyscore import EmployeeMonthlyScore
 
 collection = 'employees'
 
 class Employee(object):
-    def __init__(self, name, avg_score, num_inspections,_id=None):
+    def __init__(self, name, avg_score, total_score, num_inspections, _id=None):
         self.name = name
         self.avg_score = avg_score
+        self.total_score = total_score
         self.num_inspections = num_inspections
         self._id = uuid.uuid4().hex if _id is None else _id
 
@@ -17,12 +18,10 @@ class Employee(object):
         return {
             "name": self.name,
             "avg_score": self.avg_score,
+            "total_score": self.total_score,
             "num_inspections": self.num_inspections,
             "_id": self._id
         }
-
-    def save_to_mongo(self):
-        Database.update(collection, {"_id": self._id}, self.json())
 
     @classmethod
     def get_by_id(cls, id):
@@ -35,156 +34,67 @@ class Employee(object):
     def remove(cls, id):
         Database.remove(collection, {"_id": id})
 
-
     def update(self):
         Database.update(collection, {"_id": self._id}, self.json())
 
     @classmethod
-    def updateEmployee(cls, id, data):
+    def update_emp(cls, id, data):
         Database.update(collection, {"_id": id}, data)
 
     @classmethod
-    def updateEmployeeScore(cls, empId, avg_score, count):
-        emp = Employee.get_by_id(empId)
-        emp.avg_score = avg_score
-        emp.num_inspections = count
-        Database.update(collection, {"_id": empId}, emp.json())
+    def update_emp_score(cls, empId, total_score, count):
+        Database.DATABASE[collection].update({"_id": empId}, {'$inc': {'total_score': total_score,
+                                                                       'num_inspections': count}})
 
     @staticmethod
-    def getAllEmployees():
-        return dumps(Database.findAll(collection))
+    def get_all_emps():
+        return Database.findAll(collection)
 
     @classmethod
-    def getMonthlyInspections(cls, empID):
+    def get_monthly_inspections(cls, emp_id):
         pipeline = [{
              "$lookup": {
                 'from': "ins_monthly_scores",
                 'localField': "_id",
-                'foreignField': "empId",
+                'foreignField': "emp_id",
                 'as': "Monthly Scores"}
         }, {
             "$match": {
-                "_id": empID
+                "_id": emp_id
             }
         }]
         return dumps(Database.DATABASE[collection].aggregate(pipeline))
 
     @classmethod
-    def getEmployeeInspections(cls, empID):
+    def get_emp_inspections(cls, emp_id):
         pipeline = [{
             "$match": {
-                "_id": empID
+                "_id": emp_id
                 }
             }, {
             "$lookup": {
                 'from': "ins_employees",
                 'localField': "_id",
-                'foreignField': "empId",
+                'foreignField': "emp_id",
                 'as': "empInspections"
                 }
             },  {
            "$lookup": {
                'from': "inspections",
-               'localField': "empInspections.insId",
+               'localField': "empInspections.ins_id",
                'foreignField': "_id",
                'as': "inspections"
            }
         }]
-        return dumps(Database.DATABASE[collection].aggregate(pipeline))
+        return Database.DATABASE[collection].aggregate(pipeline)
 
 
     @classmethod
-    def calculateMonthlyAvg(cls, empID, month, year):
-        pipeline = [{
-            "$match": {
-                "_id": empID
-            }
-        }, {
-            "$lookup": {
-                'from': "ins_employees",
-                'localField': "_id",
-                'foreignField': "empId",
-                'as': "empInspections"
-            }
-        }, {
-            "$lookup": {
-                'from': "inspections",
-                'localField': "empInspections.insId",
-                'foreignField': "_id",
-                'as': "inspections"
-            }
-        }, {
-            "$unwind": "$inspections"
-        }, {
-            "$match": {
-                "inspections.month": month,
-                "inspections.year": year
-            }
-        }, {
-            "$project": {
-                "inspections": "$inspections"
-            }
-        }]
-        empMonthlyIns = Database.DATABASE['employees'].aggregate(pipeline)
-        totalscore = 0
-        count = 0
-        for ins in empMonthlyIns:
-            score = ins['inspections']['score']
-            totalscore += score
-            count += 1
-        if count == 0:
-            Score.remove_by_empId_and_month_and_year(empID, month, year)
-        else:
-            avgScore = totalscore / count
-            empScore = Score(**Score.get_by_emp_id(empID, month))
-            empScore.score = avgScore
-            empScore.num_inspections = empScore.num_inspections - 1
-            Score.updateScore(empID, month, year, empScore.json())
+    def calculate_emp_monthly_avg(cls, emp_id, month, year, score, num_inspections):
+        EmployeeMonthlyScore.update_monthly_score_and_num_inspections(emp_id, month,
+                                                                      year, score, num_inspections)
 
     @classmethod
-    def calculateAllAvg(cls, empID):
-        pipeline = [{
-            "$match": {
-                "_id": empID
-            }
-        }, {
-            "$lookup": {
-                'from': "ins_employees",
-                'localField': "_id",
-                'foreignField': "empId",
-                'as': "empInspections"
-            }
-        }, {
-            "$lookup": {
-                'from': "inspections",
-                'localField': "empInspections.insId",
-                'foreignField': "_id",
-                'as': "inspections"
-            }
-        }, {
-            "$unwind": "$inspections"
-        }, {
-            "$project": {
-                "inspections": "$inspections"
-            }
-        }]
-        empsIns = Database.DATABASE['employees'].aggregate(pipeline)
-        totalscore = 0
-        count = 0
-        for ins in empsIns:
-            score = ins['inspections']['score']
-            totalscore += score
-            count += 1
-        if count == 0:
-            Employee.updateEmployeeScore(empID, 0, 0)
-        else:
-            avg_score = totalscore / count
-            Employee.updateEmployeeScore(empID, avg_score, count)
-
-
-    @classmethod
-    def calculateAvgForAllEmployees(cls, month, year):
-        emps = Database.findAll(collection)
-        for emp in emps:
-            Employee.calculateMonthlyAvg(emp['_id'],month, year)
-            Employee.calculateAllAvg(emp['_id'])
+    def calculate_emp_avg(cls, emp_id, score_to_deduct, num_inspections_to_deduct):
+        Database.DATABASE[collection].update({'_id': emp_id}, {'$inc': {'total_score': score_to_deduct,
+                                                                        'num_inspections': num_inspections_to_deduct}})

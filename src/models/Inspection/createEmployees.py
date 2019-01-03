@@ -6,4 +6,4 @@ def createEmployees():
     names = ['Ruth K', 'Mary', 'Sharon', 'Bonny', 'Sunil', 'Pardeep', 'Harvinder']
 
     for name in names:
-        Employee(name, 0, 0).insert()
+        Employee(name,0,0,0).insert()

@@ -6,7 +6,7 @@ from src.common.database import Database
 collection = 'ins_items'
 
 class InspectionItem(object):
-    def __init__(self, item, cat,_id=None):
+    def __init__(self, item, cat, _id=None):
         self.item = item
         self.cat = cat
         self._id = uuid.uuid4().hex if _id is None else _id
@@ -39,7 +39,7 @@ class InspectionItem(object):
 
     @staticmethod
     def getAllItems():
-        return dumps(Database.findAll(collection))
+        return Database.findAll(collection)
 
     @staticmethod
     def getAllItemsByGroup():

@@ -1,20 +1,23 @@
 import uuid
-
-from bson.json_util import dumps
 from src.common.database import Database
 
 collection = 'ins_employees'
 
+
 class InspectionEmployee(object):
-    def __init__(self, insId, empId,_id=None):
-        self.insId = insId
-        self.empId = empId
+    def __init__(self, ins_id, emp_id, month, year, _id=None):
+        self.ins_id = ins_id
+        self.emp_id = emp_id
+        self.month = month
+        self.year = year
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def json(self):
         return {
-            "insId": self.insId,
-            "empId": self.empId,
+            "ins_id": self.ins_id,
+            "emp_id": self.emp_id,
+            "month": self.month,
+            "year": self.year,
             "_id": self._id
         }
 
@@ -22,28 +25,20 @@ class InspectionEmployee(object):
         Database.update(collection, {"_id": self._id}, self.json())
 
     @classmethod
-    def get_by_item_id(cls, id):
-        return cls(**Database.find_one(collection, {"_id": id}))
-
-    @classmethod
-    def get_by_ins_id(cls, id):
-        return Database.find(collection, {"insId": id})
+    def get_by_ins_id(cls, ins_id):
+        return Database.find(collection, {"ins_id": ins_id})
 
     def insert(self):
         Database.insert(collection, self.json())
 
     @classmethod
-    def remove(cls, id):
-        Database.remove(collection, {"_id": id})
+    def remove_by_emp_id(cls, emp_id):
+        Database.remove(collection, {"emp_id": emp_id})
 
     @classmethod
-    def remove_by_insId(cls, insId):
-        Database.remove(collection, {"insId": insId})
+    def remove_by_ins_id_and_emp_id(cls, ins_id, emp_id):
+        Database.remove(collection, {"ins_id": ins_id, 'emp_id': emp_id})
 
     @classmethod
-    def updateEmployee(cls, id, data):
-        Database.update(collection, {"_id": id}, data)
-
-    @staticmethod
-    def getAllEmployees(insId):
-        return dumps(Database.find(collection, {"insId": insId}))
+    def remove_by_emp_id_month_year(cls, emp_id, month, year):
+        Database.remove(collection, {'emp_id': emp_id, 'month': month, 'year': year})

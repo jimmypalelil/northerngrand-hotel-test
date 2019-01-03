@@ -6,12 +6,13 @@ from src.common.database import Database
 collection = 'inspections'
 
 class Inspection(object):
-    def __init__(self, room_number, day, month, year, score, _id=None):
+    def __init__(self, room_number, day, month, year, score, num_employees, _id=None):
         self.room_number = room_number
         self.day = day
         self.month = month
         self.year = year
         self.score = score
+        self.num_employees = num_employees
         self._id = uuid.uuid4().hex if _id is None else _id
 
     def json(self):
@@ -21,6 +22,7 @@ class Inspection(object):
             "day": self.day,
             "year": self.year,
             "score": self.score,
+            "num_employees": self.num_employees,
             "_id": self._id
         }
 
@@ -35,6 +37,10 @@ class Inspection(object):
     def get_by_month_and_year(cls, month, year):
         return Database.find(collection, {"month": month, "year": year})
 
+    @classmethod
+    def set_ins_score(cls, ins_id, score):
+        Database.DATABASE[collection].update({'_id': ins_id}, {'$set': {'score': score}})
+
     def insert(self):
         Database.insert(collection, self.json())
 
@@ -44,42 +50,41 @@ class Inspection(object):
 
     @classmethod
     def remove_by_month_and_year(cls, month, year):
-        Database.remove(collection, {"month": month, "year": year})
-
+        inspections = Inspection.get_by_month_and_year(month, year)
+        for ins in inspections:
+            if ins['num_employees'] == 1:
+                Database.remove(collection, {"month": month, "year": year})
 
     @classmethod
     def update(cls, id, data):
         Database.update(collection, {"_id": id}, data)
 
-    def insertOne(self):
+    def insert_one(self):
         return Database.insertOne(collection, self.json())
 
-    @staticmethod
-    def getAllEmployees():
-        return dumps(Database.findAll(collection))
-
     @classmethod
-    def getInspectionItems(cls, insID, day, month, year):
+    def get_inspection_items(cls, ins_id, emp_id):
         pipeline = [{
             "$match": {
-                "_id": insID,
-                "day": day,
-                "month": month,
-                "year": year
+                "_id": ins_id
             }
         }, {
             "$lookup": {
                 'from': "ins_scores",
                 'localField': "_id",
-                'foreignField': "insId",
+                'foreignField': "ins_id",
                 'as': "item"
             }
         }, {
             "$unwind": "$item"
-        },{
+        }, {
+           "$match": {
+               "item.emp_id": emp_id
+           }
+        }, {
             "$lookup": {
                 'from': "ins_items",
-                'localField': "item.itemId",
+                'localField': "item.item_id",
                 'foreignField': "_id",
                 'as': "inspection"
             }
@@ -88,7 +93,55 @@ class Inspection(object):
         }, {
             "$group": {
                 "_id": "$inspection.cat",
-                "items": { "$push": "$$ROOT"}
+                "items": {"$push": "$$ROOT"}
             }
         }]
         return dumps(Database.DATABASE[collection].aggregate(pipeline))
+
+
+    @classmethod
+    def get_ins_emp_count(cls, ins_id):
+        pipeline = [{
+            "$match": {
+                "_id": ins_id
+            }
+        }, {
+            "$lookup": {
+                'from': "ins_employees",
+                'localField': "_id",
+                'foreignField': "ins_id",
+                'as': "ins_employees"
+            }
+        }, {
+            "$unwind": "$ins_employees"
+        }, {
+            "$group": {
+                "_id": None,
+                "total": {"$sum": 1},
+                "emps": {"$push": "$$ROOT"}
+            }
+        }]
+        return Database.DATABASE[collection].aggregate(pipeline)
+
+    @classmethod
+    def get_ins_emps(cls, ins_id):
+        pipeline = [{
+            "$match": {
+                "_id": ins_id
+            }
+        }, {
+            "$lookup": {
+                'from': "ins_employees",
+                'localField': "_id",
+                'foreignField': "ins_id",
+                'as': "ins_employees"
+            }
+        }, {
+            "$unwind": "$ins_employees"
+        }]
+        return Database.DATABASE[collection].aggregate(pipeline)
+
+    @classmethod
+    def set_num_emps(cls, ins_id, num_employees):
+        Database.DATABASE[collection].update({'_id': ins_id}, {'$inc': {'num_employees': num_employees}})
+
