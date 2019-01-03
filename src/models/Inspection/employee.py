@@ -66,25 +66,38 @@ class Employee(object):
         return dumps(Database.DATABASE[collection].aggregate(pipeline))
 
     @classmethod
-    def get_emp_inspections(cls, emp_id):
+    def get_emp_inspections(cls, emp_id, month, year):
         pipeline = [{
             "$match": {
                 "_id": emp_id
-                }
-            }, {
+            }
+        }, {
             "$lookup": {
                 'from': "ins_employees",
                 'localField': "_id",
                 'foreignField': "emp_id",
                 'as': "empInspections"
-                }
-            },  {
+            }
+        }, {
+          "$unwind": "$empInspections"
+        }, {
+          "$match": {
+              "empInspections.month": month,
+              "empInspections.year": year
+          }
+        }, {
            "$lookup": {
                'from': "inspections",
                'localField': "empInspections.ins_id",
                'foreignField': "_id",
                'as': "inspections"
            }
+        }, {
+          "$unwind": "$inspections"
+        }, {
+            "$project": {
+                'inspections': "$inspections"
+            }
         }]
         return Database.DATABASE[collection].aggregate(pipeline)
 

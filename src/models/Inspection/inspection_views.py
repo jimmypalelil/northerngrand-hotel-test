@@ -37,7 +37,6 @@ def start_new_inspection():
 @inspection_bp.route('/inspectionResult', methods=['POST'])
 def create_inspection_result():
     data = request.json
-    print(data[0])
     ins_id = data[0]['_id']['id']
     month = data[0]['month']
     year = data[0]['year']
@@ -89,24 +88,28 @@ def reset():
     return jsonify({'text': 'Inspections Reset Successfully'})
 
 
-@inspection_bp.route('/getEmployeeInspections/<emp_id>')
-def get_inspections(emp_id):
-    return dumps(Employee.get_emp_inspections(emp_id))
+@inspection_bp.route('/getEmployeeInspections', methods=['POST'])
+def get_inspections():
+    data = request.json
+    emp_id = data['emp_id']
+    month = data['month']
+    year = data['year']
+    return dumps(Employee.get_emp_inspections(emp_id, month, year))
 
 
 @inspection_bp.route('/getEmployeeInspection/<ins_id>/<emp_id>')
 def getInpsection(ins_id, emp_id):
-    return Inspection.get_inspection_items(ins_id, emp_id)
+    return dumps(Inspection.get_inspection_items(ins_id, emp_id))
 
 
 @inspection_bp.route('/deleteInspection', methods=['POST'])
 def delete_inspection():
     data = request.json
-    inspection = data['inspection']
+    inspection = data['inspection']['inspections']
     ins_id = inspection['_id']
     emp_id = data['emp_id']
+    total_emps = inspection['num_employees']
 
-    total_emps = (json.loads(dumps(Inspection.get_ins_emp_count(ins_id))))[0]['total']
     score_to_deduct = inspection['score'] * -1
     Employee.update_emp_score(emp_id, score_to_deduct, -1)
     Employee.calculate_emp_monthly_avg(emp_id, inspection['month'], inspection['year'], score_to_deduct, -1)
