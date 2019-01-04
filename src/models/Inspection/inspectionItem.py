@@ -5,6 +5,7 @@ from src.common.database import Database
 
 collection = 'ins_items'
 
+
 class InspectionItem(object):
     def __init__(self, item, cat, _id=None):
         self.item = item
