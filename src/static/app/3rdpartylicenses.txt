@@ -572,8 +572,6 @@ MIT
 
 @angular/material/list
 
-@angular/material/button-toggle
-
 @angular/material/sort
 
 @angular/material/table
