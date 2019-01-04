@@ -21,14 +21,20 @@ class InspectionItem(object):
     def save_to_mongo(self):
         Database.update(collection, {"_id": self._id}, self.json())
 
+
     @classmethod
-    def get_by_item_id(cls, id):
-        return cls(**Database.find_one(collection, {"_id": id}))
+    def get_by_id(cls, item_id):
+        return cls(**Database.find_one(collection, {'_id': item_id}))
+
+    @classmethod
+    def get_by_item_cat(cls, item, cat):
+        return Database.find_one(collection, {"item": item, 'cat': cat})
 
     @classmethod
     def insert(cls, item, cat):
-        Database.DATABASE[collection].update({'item': item, 'cat': cat}, {'$set': {'item': item, 'cat': cat}},
-                                             upsert=True)
+        temp = InspectionItem.get_by_item_cat(item, cat)
+        if temp is None:
+            InspectionItem(item, cat).save_to_mongo()
 
     @classmethod
     def remove(cls, id):
