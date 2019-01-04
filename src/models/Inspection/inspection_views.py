@@ -45,6 +45,7 @@ def create_inspection_result():
     ins_emps = data[3]
     total_score = 0
     count = 0
+
     for key in scores:
         score = float(scores[key])
         if score >= 0:
@@ -54,19 +55,6 @@ def create_inspection_result():
             comment = ''
         else:
             comment = comments[key]
-    # items = InspectionItem.getAllItems()
-    # for item in items:
-    #     key = item['_id']
-    #     score = -1
-    #     if key in scores:
-    #         score = float(scores[key])
-    #         if score >= 0:
-    #             total_score += score
-    #             count += 1
-    #     if key not in comments:
-    #         comment = ''
-    #     else:
-    #         comment = comments[key]
         for emp in ins_emps:
             InspectionScore(ins_id, emp['_id'], key, month, year, score, comment).insert()
 

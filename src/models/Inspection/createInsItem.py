@@ -8,19 +8,16 @@ Database.go()
 
 def create_ins_items():
     items = [["vent", "washroom"], ["tub/tile", "washroom"], ["sink", "washroom"], ["toilet bowl", "washroom"],
-             ["towels", "washroom"], ["shower curtain / rod", "washroom"], ["amenities", "washroom"],
-             ["floor", "washroom"], ["mirror", "washroom"], ["counter/edges", "washroom"],
-             ["closet blanket", "entrance"], ["iron", "entrance"], ["ironing board/cover", "entrance"],
-             ["recycle bin", "entrance"], ["boot tray", "entrance"], ["main door ", "entrance"],
-             ["tile/edges", "entrance"], ["coffee tray", "coffee station"], ["coffee amenities", "coffee station"],
-             ["coffee pods ", "coffee station"], ["keurig pot", "coffee station"], ["bed ", "front room"],
-             ["pillows", "front room"], ["scarf", "front room"], ["note pad/pen", "front room"],
+             ["towels", "washroom"], ["shower curtain / rod", "washroom"], ["amenities", "washroom"], ["floor", "washroom"],
+             ["mirror", "washroom"], ["counter/edges", "washroom"], ["closet blanket", "entrance"], ["iron", "entrance"],
+             ["floor", "entrance"], ["ironing board/cover", "entrance"], ["recycle bin", "entrance"], ["boot tray", "entrance"],
+             ["main door ", "entrance"], ["tile/edges", "entrance"], ["coffee tray", "coffee station"],
+             ["coffee amenities", "coffee station"], ["coffee pods ", "coffee station"], ["keurig pot", "coffee station"],
+             ["bed ", "front room"], ["pillows", "front room"], ["scarf", "front room"], ["note pad/pen", "front room"],
              ["namecard/chocolate", "front room"], ["heater/ac unit", "front room"], ["blind", "front room"],
-             ["window ledge", "front room"], ["lampshade/base", "front room"], ["bed lamps", "front room"],
-             ["chair", "front room"], ["dusting of furniture", "front room"], ["vacuuming", "front room"],
-             ["mirror", "front room"], ["headboard ledge ", "front room"], ["icebucket/tray glasses", "front room"],
-             ["picture frame/bench", "front room"], ["drawers", "front room"], ["overall appearance", "Miscellaneous"],
-             ["floor", "entrance"]]
+             ["window ledge", "front room"], ["lampshade/base", "front room"], ["bed lamps", "front room"], ["chair", "front room"],
+             ["dusting of furniture", "front room"], ["vacuuming", "front room"], ["mirror", "front room"], ["headboard ledge ", "front room"],
+             ["icebucket/tray glasses", "front room"], ["picture frame/bench", "front room"], ["drawers", "front room"]]
 
     for item in items:
         InspectionItem.insert(item[0], item[1])
