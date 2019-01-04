@@ -3,7 +3,8 @@ import os
 
 
 class Database(object):
-  URI = os.environ.get("MONGOLAB_URI")
+  # URI = os.environ.get("MONGOLAB_URI")
+  URI = 'mongodb://jimmypalelil:ahaaha@ds249707.mlab.com:49707/heroku_btv18l4k'
   DATABASE = None
 
   @staticmethod

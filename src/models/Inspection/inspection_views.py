@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, json
 from bson.json_util import dumps
 from src.common.database import Database
-from src.models.Inspection.createInsItem import resetInspections
+from src.models.Inspection.createInsItem import reset_inspections, create_ins_items
 from src.models.Inspection.employee import Employee
 from src.models.Inspection.inspection import Inspection
 from src.models.Inspection.inspectionEmployee import InspectionEmployee
@@ -92,7 +92,7 @@ def get_emp_monthly_inspections(emp_id):
 
 @inspection_bp.route('/resetInspections')
 def reset():
-    resetInspections()
+    reset_inspections()
     return jsonify({'text': 'Inspections Reset Successfully'})
 
 
@@ -146,3 +146,9 @@ def delete_monthly_inspections(emp_id):
     InspectionEmployee.remove_by_emp_id_month_year(emp_id, month, year)
     Inspection.remove_by_month_and_year(month, year)
     return jsonify({"text": "Inspections Deleted"})
+
+
+@inspection_bp.route('/createInsItems', methods=['GET'])
+def create_inspection_items():
+    create_ins_items()
+    return jsonify({"text": "New Inspection Items were added!!!"})

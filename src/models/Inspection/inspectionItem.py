@@ -25,8 +25,10 @@ class InspectionItem(object):
     def get_by_item_id(cls, id):
         return cls(**Database.find_one(collection, {"_id": id}))
 
-    def insert(self):
-        Database.insert(collection, self.json())
+    @classmethod
+    def insert(cls, item, cat):
+        Database.DATABASE[collection].update({'item': item, 'cat': cat}, {'$set': {'item': item, 'cat': cat}},
+                                             upsert=True)
 
     @classmethod
     def remove(cls, id):
