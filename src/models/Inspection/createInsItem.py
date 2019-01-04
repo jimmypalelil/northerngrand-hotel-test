@@ -9,8 +9,19 @@ from src.models.Inspection.employeemonthlyscore import EmployeeMonthlyScore
 Database.go()
 
 def createInsItems():
-    items = [["just checking ", "window"], ["all coffee pods in ", "coffee station"],
-             ["sink", "washroom"], ["toilet bowl", "washroom"]]
+    items = [["vent", "washroom"], ["tub/tile", "washroom"], ["sink", "washroom"], ["toilet bowl", "washroom"],
+             ["towels", "washroom"], ["shower curtain / rod", "washroom"], ["ammenities", "washroom"],
+             ["floor", "washroom"], ["mirror", "washroom"], ["counter/edges", "washroom"],
+             ["closet blanket", "entrance"], ["iron", "entrance"], ["ironing board/cover", "entrance"],
+             ["recylce bin", "entrance"], ["boot tray", "entrance"], ["main door ", "entrance"],
+             ["tile/edges", "entrance"], ["coffee tray", "coffee station"], ["coffee ammenites", "coffee station"],
+             ["coffee pods ", "coffee station"], ["keurig pot", "coffee station"], ["bed ", "front room"],
+             ["pillows", "front room"], ["scarf", "front room"], ["note pad/pen", "front room"],
+             ["namecard/chocolate", "front room"], ["heater/ac unit", "front room"], ["blind", "front room"],
+             ["window ledge", "front room"], ["lampshade/base", "front room"], ["bed lamps", "front room"],
+             ["chair", "front room"], ["dusting of furniture", "front room"], ["vaccuming", "front room"],
+             ["mirror", "front room"], ["headboard ledge ", "front room"], ["icebucket/tray glasses", "front room"],
+             ["picture frame/bench", "front room"], ["drawers", "front room"], ["overall appearance", "Miscellaneous"]]
 
     for item in items:
         InspectionItem(item[0], item[1]).insert()
@@ -73,9 +84,3 @@ def get_emp_inspections(emp_id):
        }
     }]
     return Database.DATABASE['employees'].aggregate(pipeline)
-
-
-emps = get_emp_inspections('efadbd4583574f87b1ec35a4c926257b')
-
-for emp in emps:
-    print(emp)

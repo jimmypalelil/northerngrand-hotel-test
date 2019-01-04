@@ -54,6 +54,8 @@ class Inspection(object):
         for ins in inspections:
             if ins['num_employees'] == 1:
                 Database.remove(collection, {"month": month, "year": year})
+            else:
+                Database.DATABASE[collection].update({'month': month, 'year': year}, {'$inc': {'num_employees': -1}})
 
     @classmethod
     def update(cls, id, data):
@@ -96,7 +98,6 @@ class Inspection(object):
                 "items": {"$push": "$$ROOT"}
             }
         }]
-        print(dumps(Database.DATABASE[collection].aggregate(pipeline)))
         return Database.DATABASE[collection].aggregate(pipeline)
 
 

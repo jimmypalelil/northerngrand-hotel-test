@@ -45,19 +45,28 @@ def create_inspection_result():
     ins_emps = data[3]
     total_score = 0
     count = 0
-    items = InspectionItem.getAllItems()
-    for item in items:
-        key = item['_id']
-        score = -1
-        if key in scores:
-            score = float(scores[key])
-            if score >= 0:
-                total_score += score
-                count += 1
+    for key in scores:
+        score = float(scores[key])
+        if score >= 0:
+            total_score += score
+            count += 1
         if key not in comments:
             comment = ''
         else:
             comment = comments[key]
+    # items = InspectionItem.getAllItems()
+    # for item in items:
+    #     key = item['_id']
+    #     score = -1
+    #     if key in scores:
+    #         score = float(scores[key])
+    #         if score >= 0:
+    #             total_score += score
+    #             count += 1
+    #     if key not in comments:
+    #         comment = ''
+    #     else:
+    #         comment = comments[key]
         for emp in ins_emps:
             InspectionScore(ins_id, emp['_id'], key, month, year, score, comment).insert()
 
@@ -65,14 +74,13 @@ def create_inspection_result():
         count = 1
     ins_score = total_score / count
     Inspection.set_ins_score(ins_id, ins_score)
-    ins_emps = InspectionEmployee.get_by_ins_id(ins_id)
     for employee in ins_emps:
-        Employee.update_emp_score(employee['emp_id'], ins_score, 1)
-        emp_month_score = EmployeeMonthlyScore.get_by_emp_id_month_year(employee['emp_id'], month, year)
+        Employee.update_emp_score(employee['_id'], ins_score, 1)
+        emp_month_score = EmployeeMonthlyScore.get_by_emp_id_month_year(employee['_id'], month, year)
         if emp_month_score is None:
-            EmployeeMonthlyScore(employee['emp_id'], month, year, ins_score).insert()
+            EmployeeMonthlyScore(employee['_id'], month, year, ins_score).insert()
         else:
-            EmployeeMonthlyScore.update_monthly_score_and_num_inspections(employee['emp_id'], month,
+            EmployeeMonthlyScore.update_monthly_score_and_num_inspections(employee['_id'], month,
                                                                           year, ins_score, 1)
     return jsonify({'text': 'Inspection Recorded'})
 
@@ -94,7 +102,7 @@ def get_inspections():
     emp_id = data['emp_id']
     month = data['month']
     year = data['year']
-    return dumps(Employee.get_emp_inspections(emp_id, month, year))
+    return dumps(Employee.get_emp_month_inspections(emp_id, month, year))
 
 
 @inspection_bp.route('/getEmployeeInspection/<ins_id>/<emp_id>')

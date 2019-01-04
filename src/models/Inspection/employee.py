@@ -66,7 +66,7 @@ class Employee(object):
         return dumps(Database.DATABASE[collection].aggregate(pipeline))
 
     @classmethod
-    def get_emp_inspections(cls, emp_id, month, year):
+    def get_emp_month_inspections(cls, emp_id, month, year):
         pipeline = [{
             "$match": {
                 "_id": emp_id

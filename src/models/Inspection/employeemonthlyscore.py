@@ -59,3 +59,6 @@ class EmployeeMonthlyScore(object):
     def update_monthly_score_and_num_inspections(cls, emp_id, month, year, score, num_inspections):
         Database.DATABASE[collection].update({"emp_id": emp_id, "month": month, "year": year},
                                              {'$inc': {'num_inspections': num_inspections, 'score': score}})
+        num_inspections = EmployeeMonthlyScore.get_by_emp_id_month_year(emp_id, month, year)['num_inspections']
+        if num_inspections == 0:
+            EmployeeMonthlyScore.remove_by_emp_id_and_month_and_year(emp_id, month, year)
