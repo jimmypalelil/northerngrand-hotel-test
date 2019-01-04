@@ -31,6 +31,14 @@ class InspectionItem(object):
         return Database.find_one(collection, {"item": item, 'cat': cat})
 
     @classmethod
+    def update_item_name(cls, old, new):
+        Database.DATABASE[collection].update({'item': old}, {'$set': {'item': new}})
+
+    @classmethod
+    def update_cat_name(cls, old, new):
+        Database.DATABASE[collection].update({'cat': old}, {'$set': {'cat': new}})
+
+    @classmethod
     def insert(cls, item, cat):
         temp = InspectionItem.get_by_item_cat(item, cat)
         if temp is None:
