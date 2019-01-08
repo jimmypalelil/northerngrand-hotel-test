@@ -24,7 +24,7 @@
     window.onscroll = function() {scrollFunction()};
 
     function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 && $(window).width() > 600) {
         document.getElementById("myBtn").style.display = "block";
       } else {
         document.getElementById("myBtn").style.display = "none";
@@ -40,11 +40,11 @@
 <link rel="stylesheet" href="styles.8e89c25b0a37bc9276d5.css"></head>
 <body id="body">
   <app-root></app-root>
-  <button mdbBtn mdbWavesEffect class="animated fadeInRight z-depth-3 d-print-none d-none d-lg-block" onclick="topFunction()" id="myBtn"
+  <button mdbBtn mdbWavesEffect class="animated fadeInRight z-depth-3 d-print-none" onclick="topFunction()" id="myBtn"
           mdbTooltip="Got To Top"
           placement="top">
     <i class="fas fa-chevron-up"></i>
     Top
   </button>
-<script type="text/javascript" src="runtime.ec2944dd8b20ec099bf3.js"></script><script type="text/javascript" src="polyfills.f6930679dbd092886231.js"></script><script type="text/javascript" src="scripts.8bde5597056f6ba2f6a7.js"></script><script type="text/javascript" src="main.b62c52445eff6d9e2c2f.js"></script></body>
+<script type="text/javascript" src="runtime.ec2944dd8b20ec099bf3.js"></script><script type="text/javascript" src="polyfills.f6930679dbd092886231.js"></script><script type="text/javascript" src="scripts.8bde5597056f6ba2f6a7.js"></script><script type="text/javascript" src="main.8b40f5022898187d217a.js"></script></body>
 </html>
