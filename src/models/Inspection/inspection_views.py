@@ -64,12 +64,8 @@ def create_inspection_result():
     Inspection.set_ins_score(ins_id, ins_score)
     for employee in ins_emps:
         Employee.update_emp_score(employee['_id'], ins_score, 1)
-        emp_month_score = EmployeeMonthlyScore.get_by_emp_id_month_year(employee['_id'], month, year)
-        if emp_month_score is None:
-            EmployeeMonthlyScore(employee['_id'], month, year, ins_score).insert()
-        else:
-            EmployeeMonthlyScore.update_monthly_score_and_num_inspections(employee['_id'], month,
-                                                                          year, ins_score, 1)
+        EmployeeMonthlyScore.update_monthly_score_and_num_inspections(employee['_id'], month,
+                                                                      year, ins_score, 1)
     return jsonify({'text': 'Inspection Recorded'})
 
 
