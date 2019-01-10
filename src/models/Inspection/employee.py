@@ -63,7 +63,8 @@ class Employee(object):
                 "_id": emp_id
             }
         }]
-        return dumps(Database.DATABASE[collection].aggregate(pipeline))
+        return_data = Database.DATABASE[collection].aggregate(pipeline)
+        return return_data
 
     @classmethod
     def get_emp_month_inspections(cls, emp_id, month, year):
@@ -81,11 +82,6 @@ class Employee(object):
         }, {
           "$unwind": "$empInspections"
         }, {
-          "$match": {
-              "empInspections.month": month,
-              "empInspections.year": year
-          }
-        }, {
            "$lookup": {
                'from': "inspections",
                'localField': "empInspections.ins_id",
@@ -95,12 +91,54 @@ class Employee(object):
         }, {
           "$unwind": "$inspections"
         }, {
+          "$match": {
+              "inspections.month": month,
+              "inspections.year": year
+          }
+        }, {
             "$project": {
                 'inspections': "$inspections"
             }
         }]
-        return Database.DATABASE[collection].aggregate(pipeline)
+        return_data = Database.DATABASE[collection].aggregate(pipeline)
+        return return_data
 
+    @classmethod
+    def get_inspections_for_employee(cls, emp_id, month, year):
+        pipeline = [{
+            "$match": {
+                "_id": emp_id
+            }
+        }, {
+            "$lookup": {
+                'from': "ins_employees",
+                'localField': "_id",
+                'foreignField': "emp_id",
+                'as': "empInspections"
+            }
+        }, {
+            "$unwind": "$empInspections"
+        }, {
+            "$lookup": {
+                'from': "inspections",
+                'localField': "empInspections.ins_id",
+                'foreignField': "_id",
+                'as': "inspections"
+            }
+        }, {
+            "$match": {
+                "inspections.month": month,
+                "inspections.year": year
+            }
+        }, {
+            "$unwind": "$inspections"
+        }, {
+            "$project": {
+                "inspections": "$inspections"
+            }
+        }]
+        return_data = Database.DATABASE[collection].aggregate(pipeline)
+        return return_data
 
     @classmethod
     def calculate_emp_monthly_avg(cls, emp_id, month, year, score, num_inspections):

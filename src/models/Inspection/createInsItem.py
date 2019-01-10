@@ -40,11 +40,6 @@ def get_inspections_for_employee(emp_id, month, year):
     }, {
         "$unwind": "$empInspections"
     }, {
-        "$match": {
-            "empInspections.month": month,
-            "empInspections.year": year
-        }
-    }, {
         "$lookup": {
             'from': "inspections",
             'localField': "empInspections.ins_id",
@@ -53,7 +48,9 @@ def get_inspections_for_employee(emp_id, month, year):
         }
     }, {
        "$match": {
-           "inspections.num_employees": 1
+           "inspections.num_employees": 1,
+           "inspections.month": month,
+           "inspections.year": year
        }
     }, {
         "$unwind": "$inspections"
@@ -66,4 +63,4 @@ def get_inspections_for_employee(emp_id, month, year):
     return Database.DATABASE['employees'].aggregate(pipeline)
 
 
-# get_inspections_for_employee('3abbecbbe13a45ed9b8b5453a09b281c', 'jan', 2019)
+get_inspections_for_employee('3abbecbbe13a45ed9b8b5453a09b281c', 'jan', 2019)

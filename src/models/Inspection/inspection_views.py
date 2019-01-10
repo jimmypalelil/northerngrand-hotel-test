@@ -55,8 +55,9 @@ def create_inspection_result():
             comment = ''
         else:
             comment = comments[key]
-        for emp in ins_emps:
-            InspectionScore(ins_id, emp['_id'], key, month, year, score, comment).insert()
+        # for emp in ins_emps:
+        #     InspectionScore(ins_id, emp['_id'], key, month, year, score, comment).insert()
+        InspectionScore(ins_id, key, month, year, score, comment).insert()
 
     if count == 0:
         count = 1
@@ -71,7 +72,7 @@ def create_inspection_result():
 
 @inspection_bp.route('/getEmployeeMonthlyInspections/<emp_id>')
 def get_emp_monthly_inspections(emp_id):
-    return Employee.get_monthly_inspections(emp_id)
+    return dumps(Employee.get_monthly_inspections(emp_id))
 
 
 @inspection_bp.route('/resetInspections')
@@ -91,7 +92,7 @@ def get_inspections():
 
 @inspection_bp.route('/getEmployeeInspection/<ins_id>/<emp_id>')
 def getInpsection(ins_id, emp_id):
-    return dumps(Inspection.get_inspection_items(ins_id, emp_id))
+    return dumps(Inspection.get_inspection_items(ins_id))
 
 
 @inspection_bp.route('/deleteInspection', methods=['POST'])
@@ -108,9 +109,10 @@ def delete_inspection():
 
     if total_emps == 1:
         Inspection.remove(ins_id)
+        InspectionScore.remove_by_ins_id(ins_id)
     else:
         Inspection.set_num_emps(ins_id, -1)
-    InspectionScore.remove_by_ins_id_emp_id(ins_id, emp_id)
+    # InspectionScore.remove_by_ins_id_emp_id(ins_id, emp_id)
     InspectionEmployee.remove_by_ins_id_and_emp_id(ins_id, emp_id)
 
     return jsonify({"text": "Inspection Deleted"})
@@ -121,14 +123,24 @@ def delete_monthly_inspections(emp_id):
     data = request.json
     month = data['month']
     year = data['year']
-    score_to_deduct = data['score'] * -1
+    monthly_score_to_deduct = data['score'] * -1
     num_inspections_to_deduct = data['num_inspections'] * -1
 
-    Employee.calculate_emp_avg(emp_id, score_to_deduct, num_inspections_to_deduct)
-    EmployeeMonthlyScore.remove_by_emp_id_and_month_and_year(emp_id, month, year)
-    InspectionScore.remove_by_emp_id_month_year(emp_id, month, year)
+    Employee.calculate_emp_avg(emp_id, monthly_score_to_deduct, num_inspections_to_deduct)
+    emp_inspections = Employee.get_inspections_for_employee(emp_id, month, year)
+    for ins in emp_inspections:
+        ins_id = ins['inspections']['_id']
+        num_employees = ins['inspections']['num_employees']
+        if num_employees == 1:
+            InspectionScore.remove_by_ins_id(ins_id)
+            Inspection.remove(ins_id)
+        else:
+            Inspection.set_num_emps(ins_id, -1)
     InspectionEmployee.remove_by_emp_id_month_year(emp_id, month, year)
-    Inspection.remove_by_month_and_year(month, year)
+    EmployeeMonthlyScore.remove_by_emp_id_and_month_and_year(emp_id, month, year)
+    # InspectionScore.remove_by_emp_id_month_year(emp_id, month, year)
+    # InspectionEmployee.remove_by_emp_id_month_year(emp_id, month, year)
+    # Inspection.remove_by_month_and_year(month, year)
     return jsonify({"text": "Inspections Deleted"})
 
 

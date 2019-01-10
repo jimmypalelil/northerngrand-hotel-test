@@ -65,7 +65,7 @@ class Inspection(object):
         return Database.insertOne(collection, self.json())
 
     @classmethod
-    def get_inspection_items(cls, ins_id, emp_id):
+    def get_inspection_items(cls, ins_id):
         pipeline = [{
             "$match": {
                 "_id": ins_id
@@ -79,10 +79,6 @@ class Inspection(object):
             }
         }, {
             "$unwind": "$item"
-        }, {
-           "$match": {
-               "item.emp_id": emp_id
-           }
         }, {
             "$lookup": {
                 'from': "ins_items",

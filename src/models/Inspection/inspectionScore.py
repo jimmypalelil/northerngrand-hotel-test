@@ -5,10 +5,10 @@ from src.common.database import Database
 
 collection = 'ins_scores'
 
+
 class InspectionScore(object):
-    def __init__(self, ins_id, emp_id, item_id, month, year, score, comment, _id=None):
+    def __init__(self, ins_id, item_id, month, year, score, comment, _id=None):
         self.ins_id = ins_id
-        self.emp_id = emp_id
         self.item_id = item_id
         self.month = month
         self.year = year
@@ -19,7 +19,6 @@ class InspectionScore(object):
     def json(self):
         return {
             "ins_id": self.ins_id,
-            "emp_id": self.emp_id,
             "item_id": self.item_id,
             "month": self.month,
             "year": self.year,
