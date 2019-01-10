@@ -59,11 +59,11 @@ class InspectionItem(object):
         return Database.findAll(collection)
 
     @staticmethod
-    def getAllItemsByGroup():
+    def get_all_items_by_group():
         pipeline = [{
             "$group": {
                 "_id": {"cat": "$cat"},
                 "items": {"$push": "$$ROOT"}
             }
         }]
-        return dumps(Database.DATABASE[collection].aggregate(pipeline))
+        return Database.DATABASE[collection].aggregate(pipeline)

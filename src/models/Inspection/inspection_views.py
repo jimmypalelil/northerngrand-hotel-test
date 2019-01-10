@@ -20,24 +20,15 @@ def get_emp_list():
 
 @inspection_bp.route('/newInspection', methods=['GET', 'POST'])
 def start_new_inspection():
-    data = request.json
-    inspection = data[0]
-    emp_ids = data[1]
-    room_num = inspection['room_number']
-    day = inspection['day']
-    month = inspection['month']
-    year = inspection['year']
-    new_id = Inspection(room_num, day, month, year, 0, len(emp_ids)).insert_one()
-    for emp_id in emp_ids:
-        InspectionEmployee(new_id.inserted_id, emp_id, month, year).insert()
-    ins_items = InspectionItem.getAllItemsByGroup()
-    return jsonify({'id': new_id.inserted_id}, ins_items)
+    ins_items = InspectionItem.get_all_items_by_group()
+    return dumps(ins_items)
 
 
 @inspection_bp.route('/inspectionResult', methods=['POST'])
 def create_inspection_result():
     data = request.json
-    ins_id = data[0]['_id']['id']
+    room_num = data[0]['room_number']
+    day = data[0]['day']
     month = data[0]['month']
     year = data[0]['year']
     scores = data[1]
@@ -45,6 +36,12 @@ def create_inspection_result():
     ins_emps = data[3]
     total_score = 0
     count = 0
+
+    new_id = Inspection(room_num, day, month, year, 0, len(ins_emps)).insert_one()
+    ins_id = new_id.inserted_id
+
+    for emp in ins_emps:
+        InspectionEmployee(ins_id, emp['_id'], month, year).insert()
 
     for key in scores:
         score = float(scores[key])
@@ -55,8 +52,7 @@ def create_inspection_result():
             comment = ''
         else:
             comment = comments[key]
-        # for emp in ins_emps:
-        #     InspectionScore(ins_id, emp['_id'], key, month, year, score, comment).insert()
+
         InspectionScore(ins_id, key, month, year, score, comment).insert()
 
     if count == 0:

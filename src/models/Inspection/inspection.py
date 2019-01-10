@@ -94,7 +94,8 @@ class Inspection(object):
                 "items": {"$push": "$$ROOT"}
             }
         }]
-        return Database.DATABASE[collection].aggregate(pipeline)
+        return_data = Database.DATABASE[collection].aggregate(pipeline)
+        return return_data
 
 
     @classmethod
