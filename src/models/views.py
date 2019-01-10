@@ -28,5 +28,4 @@ def changeStatus():
     status = data[1]
     for room in rooms:
         Database.DATABASE[room['cat']].update({'_id': room['_id']}, {"$set": {'status': status}})
-        # Database.update(room['cat'], {'_id': room['_id']}, room)
     return jsonify({'text': 'STATUS CHANGED SUCCESSFULLY'})
