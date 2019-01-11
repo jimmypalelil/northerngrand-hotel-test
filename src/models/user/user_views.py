@@ -58,6 +58,7 @@ def sendSMS(email):
 
 @user_bp.route('/feedback', methods=['POST'])
 def feedback():
+    print(request.json)
     comment = request.json['comment']
     email = request.json['email']
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
