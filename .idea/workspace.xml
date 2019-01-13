@@ -2,196 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d9a3fe9-94cf-466f-b6e3-8c391437913c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/static/assets/css/component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/assets/css/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/assets/fonts/bpicons/bpicons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/assets/fonts/bpicons/bpicons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/assets/fonts/bpicons/bpicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/assets/fonts/bpicons/bpicons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/assets/fonts/bpicons/license.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/assets/js/classie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/assets/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/assets/js/modernizr-custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/bpicons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/bpicons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/bpicons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/bpicons.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/01.0a3750e6fdb29fcd632e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/02.351bd6828f980ec53eb3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/03.e438ea2aabdb1087dc4f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/04.0284d042a6c29213aaa1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/05.5014f9cce435c71ade63.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/06.21612b9d3e9d84e7e876.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/07.f8da0281186df8f17f73.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/08.975f7e0074400e7561ba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/09.fd19309a1932b4751387.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Bold.39b2c3031be6b4ea96e2.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Bold.dc81817def276b4f2139.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Bold.e31fcf1885e371e19f57.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Bold.ecdd509cadbf1ea78b8d.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Light.3b813c2ae0d04909a33a.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Light.46e48ce0628835f68a73.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Light.69f8a0617ac472f78e45.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Light.a990f611f2305dc12965.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Medium.4d9f3f9e5195e7b074bb.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Medium.574fd0b50367f886d359.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Medium.894a2ede85a483bf9bed.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Medium.fc78759e93a6cac50458.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Regular.2751ee43015f9884c364.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Regular.30799efa5bf74129468a.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Regular.ba3dcd8903e3d0af5de7.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Regular.df7b648ce5356ea1ebce.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Thin.7500519de3d82e33d158.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Thin.94998475f6aea65f5584.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Thin.954bbdeb86483e4ffea0.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/Roboto-Thin.dfe56a876d0282555d1e.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/01.0a3750e6fdb29fcd632e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/02.351bd6828f980ec53eb3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/03.e438ea2aabdb1087dc4f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/04.0284d042a6c29213aaa1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/05.5014f9cce435c71ade63.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/06.21612b9d3e9d84e7e876.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/07.f8da0281186df8f17f73.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/08.975f7e0074400e7561ba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/09.fd19309a1932b4751387.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/3rdpartylicenses.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Bold.39b2c3031be6b4ea96e2.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Bold.dc81817def276b4f2139.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Bold.e31fcf1885e371e19f57.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Bold.ecdd509cadbf1ea78b8d.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Light.3b813c2ae0d04909a33a.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Light.46e48ce0628835f68a73.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Light.69f8a0617ac472f78e45.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Light.a990f611f2305dc12965.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Medium.4d9f3f9e5195e7b074bb.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Medium.574fd0b50367f886d359.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Medium.894a2ede85a483bf9bed.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Medium.fc78759e93a6cac50458.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Regular.2751ee43015f9884c364.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Regular.30799efa5bf74129468a.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Regular.ba3dcd8903e3d0af5de7.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Regular.df7b648ce5356ea1ebce.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Thin.7500519de3d82e33d158.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Thin.94998475f6aea65f5584.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Thin.954bbdeb86483e4ffea0.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/Roboto-Thin.dfe56a876d0282555d1e.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/arrow_left.270f72df47e036d9cfa1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/arrow_right.d9ccc77c8240ad0dc272.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets - Shortcut.lnk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/assets - Shortcut.lnk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/Grey-website-background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/banner.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/housekeeping.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/inspection.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/lobby_background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/login.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/lost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/lostandfound.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/north.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/search_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/top_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/user.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/website-background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/website-background_corridor.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/assets/images/website-background_snow.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/fontawesome-webfont.674f50d287a8c48dc19b.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/fontawesome-webfont.912ec66d7572ff821749.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/fontawesome-webfont.af7ae505a9eed503f8b8.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/fontawesome-webfont.b06871f281fee6b241d6.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/fontawesome-webfont.fee66e712a8a08eef580.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/main.ec96a18912877cb43caf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/polyfills.f6930679dbd092886231.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/runtime.ec2944dd8b20ec099bf3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/scripts.8bde5597056f6ba2f6a7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/styles.cdf1c21dd6541727cbc5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/app/top_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/arrow_left.270f72df47e036d9cfa1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/arrow_right.d9ccc77c8240ad0dc272.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/01.0a3750e6fdb29fcd632e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/02.351bd6828f980ec53eb3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/03.e438ea2aabdb1087dc4f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/04.0284d042a6c29213aaa1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/05.5014f9cce435c71ade63.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/06.21612b9d3e9d84e7e876.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/07.f8da0281186df8f17f73.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/08.975f7e0074400e7561ba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/09.fd19309a1932b4751387.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/3rdpartylicenses.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Bold.39b2c3031be6b4ea96e2.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Bold.dc81817def276b4f2139.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Bold.e31fcf1885e371e19f57.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Bold.ecdd509cadbf1ea78b8d.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Light.3b813c2ae0d04909a33a.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Light.46e48ce0628835f68a73.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Light.69f8a0617ac472f78e45.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Light.a990f611f2305dc12965.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Medium.4d9f3f9e5195e7b074bb.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Medium.574fd0b50367f886d359.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Medium.894a2ede85a483bf9bed.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Medium.fc78759e93a6cac50458.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Regular.2751ee43015f9884c364.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Regular.30799efa5bf74129468a.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Regular.ba3dcd8903e3d0af5de7.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Regular.df7b648ce5356ea1ebce.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Thin.7500519de3d82e33d158.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Thin.94998475f6aea65f5584.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Thin.954bbdeb86483e4ffea0.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/Roboto-Thin.dfe56a876d0282555d1e.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/arrow_left.270f72df47e036d9cfa1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/arrow_right.d9ccc77c8240ad0dc272.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/fontawesome-webfont.674f50d287a8c48dc19b.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/fontawesome-webfont.912ec66d7572ff821749.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/fontawesome-webfont.af7ae505a9eed503f8b8.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/fontawesome-webfont.b06871f281fee6b241d6.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/fontawesome-webfont.fee66e712a8a08eef580.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/images/art-blur-close-up-813871 (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/images/lost.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/assets/images/lost.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/images/navbar_background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/main.17465b300ab095b5891e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/polyfills.f6930679dbd092886231.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/runtime.ec2944dd8b20ec099bf3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/scripts.8bde5597056f6ba2f6a7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/assets/styles.2f5ad77313602f9c37ab.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/Flaticon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/Flaticon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/Flaticon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/Flaticon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/_flaticon.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/flaticon.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/flaticon.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fontawesome-webfont.674f50d287a8c48dc19b.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fontawesome-webfont.912ec66d7572ff821749.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fontawesome-webfont.af7ae505a9eed503f8b8.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fontawesome-webfont.b06871f281fee6b241d6.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fontawesome-webfont.fee66e712a8a08eef580.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/lobby_background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/lost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/north.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/search_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/top_logo.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/top_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/website-background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/website-background_snow.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/controllers/inventoryController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/controllers/lostController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/controllers/mainController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/controllers/returnController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/polyfills.f6930679dbd092886231.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/runtime.ec2944dd8b20ec099bf3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/scripts.8bde5597056f6ba2f6a7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -371,6 +182,16 @@
           <entry key="JavaScript" value="1" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="2" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
@@ -387,8 +208,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="255">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
         </entry>
@@ -1107,8 +928,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="255">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
