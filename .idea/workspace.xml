@@ -3,7 +3,85 @@
   <component name="ChangeListManager">
     <list default="true" id="9d9a3fe9-94cf-466f-b6e3-8c391437913c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/01.0a3750e6fdb29fcd632e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/02.351bd6828f980ec53eb3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/03.e438ea2aabdb1087dc4f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/04.0284d042a6c29213aaa1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/05.5014f9cce435c71ade63.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/06.21612b9d3e9d84e7e876.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/07.f8da0281186df8f17f73.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/08.975f7e0074400e7561ba.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/09.fd19309a1932b4751387.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/3rdpartylicenses.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Bold.39b2c3031be6b4ea96e2.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Bold.dc81817def276b4f2139.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Bold.e31fcf1885e371e19f57.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Bold.ecdd509cadbf1ea78b8d.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Light.3b813c2ae0d04909a33a.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Light.46e48ce0628835f68a73.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Light.69f8a0617ac472f78e45.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Light.a990f611f2305dc12965.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Medium.4d9f3f9e5195e7b074bb.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Medium.574fd0b50367f886d359.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Medium.894a2ede85a483bf9bed.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Medium.fc78759e93a6cac50458.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Regular.2751ee43015f9884c364.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Regular.30799efa5bf74129468a.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Regular.ba3dcd8903e3d0af5de7.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Regular.df7b648ce5356ea1ebce.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Thin.7500519de3d82e33d158.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Thin.94998475f6aea65f5584.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Thin.954bbdeb86483e4ffea0.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Roboto-Thin.dfe56a876d0282555d1e.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/arrow_left.270f72df47e036d9cfa1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/arrow_right.d9ccc77c8240ad0dc272.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets - Shortcut.lnk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/assets - Shortcut.lnk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/Grey-website-background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/housekeeping.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/inspection.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/lobby_background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/login.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/lostandfound.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/north.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/search_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/top_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/website-background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/website-background_corridor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/assets/images/website-background_snow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fontawesome-webfont.674f50d287a8c48dc19b.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fontawesome-webfont.912ec66d7572ff821749.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fontawesome-webfont.af7ae505a9eed503f8b8.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fontawesome-webfont.b06871f281fee6b241d6.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fontawesome-webfont.fee66e712a8a08eef580.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/Grey-website-background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/housekeeping.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/inspection.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lobby_background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/login.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/lostandfound.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/north.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/search_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/top_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/website-background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/website-background_corridor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/website-background_snow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/main.17465b300ab095b5891e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/polyfills.f6930679dbd092886231.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/runtime.ec2944dd8b20ec099bf3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scripts.8bde5597056f6ba2f6a7.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles.2f5ad77313602f9c37ab.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/top_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,24 +253,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="5" />
+          <entry key="js" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="5" />
+          <entry key="JavaScript" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="35" />
+          <entry key="html" value="45" />
           <entry key="js" value="6" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="35" />
+          <entry key="HTML" value="45" />
           <entry key="JavaScript" value="6" />
           <entry key="PLAIN_TEXT" value="11" />
         </counts>
@@ -213,17 +291,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="17" column="84" lean-forward="true" selection-start-line="16" selection-start-column="81" selection-end-line="17" selection-end-column="84" />
+            <state relative-caret-position="17">
+              <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/static/assets/js/main.js">
+        <entry file="file://$PROJECT_DIR$/src/static/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="85" lean-forward="true" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
+            <state relative-caret-position="42">
+              <caret column="967205" selection-start-column="967205" selection-end-column="967205" />
             </state>
           </provider>
         </entry>
@@ -244,6 +322,8 @@
       <find>norther</find>
       <find>c_images</find>
       <find>document.get</find>
+      <find>classie</find>
+      <find>pages-stack</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -406,6 +486,19 @@
               <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
               <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="northerngrand-hotel-test" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="northerngrand-hotel-test" type="b2602c69:ProjectViewProjectNode" />
@@ -690,7 +783,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547421034166</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="changed UI">
+      <created>1547422144131</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1547422144131</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -973,24 +1073,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/static/main.js">
+    <entry file="file://$PROJECT_DIR$/src/static/assets/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret column="964921" selection-start-column="964921" selection-end-column="964921" />
+        <state relative-caret-position="391">
+          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/static/assets/js/main.js">
+    <entry file="file://$PROJECT_DIR$/src/static/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="85" lean-forward="true" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
+        <state relative-caret-position="42">
+          <caret column="967205" selection-start-column="967205" selection-end-column="967205" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="17" column="84" lean-forward="true" selection-start-line="16" selection-start-column="81" selection-end-line="17" selection-end-column="84" />
+        <state relative-caret-position="17">
+          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
         </state>
       </provider>
     </entry>
