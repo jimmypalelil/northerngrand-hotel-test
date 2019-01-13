@@ -13,9 +13,9 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link type="text/css" rel="stylesheet" href="static/assets/css/demo.css">
-      <link type="text/css" rel="stylesheet" href="static/assets/css/component.css">
-      <script src="static/assets/js/modernizr-custom.js"></script>
+    <link type="text/css" rel="stylesheet" href="static/assets/css/demo.css">
+    <link type="text/css" rel="stylesheet" href="static/assets/css/component.css">
+    <script src="static/assets/js/modernizr-custom.js"></script>
     <!--Font awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -27,22 +27,22 @@
     <script>
         new WOW().init();
 
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("myBtn").style.display = "block";
-            }  else {
-                document.getElementById("myBtn").style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
+        {#// When the user scrolls down 20px from the top of the document, show the button#}
+        {#window.onscroll = function() {scrollFunction()};#}
+        {##}
+        {#function scrollFunction() {#}
+        {#    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {#}
+        {#        document.getElementById("myBtn").style.display = "block";#}
+        {#    }  else {#}
+        {#        document.getElementById("myBtn").style.display = "none";#}
+        {#    }#}
+        {#}#}
+        {##}
+        {#// When the user clicks on the button, scroll to the top of the document#}
+        {#function topFunction() {#}
+        {#    document.body.scrollTop = 0; // For Safari#}
+        {#    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera#}
+        {#}#}
     </script>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
@@ -51,10 +51,10 @@
 <body id="body">
     <div id="main"></div>
       <app-root></app-root>
-      <button class="animated fadeInRight z-depth-3 d-print-none" onclick="topFunction()" id="myBtn" title="Go to top">
-        <i class="fas fa-chevron-up"></i>
-        Top
-      </button>
+{#      <button class="animated fadeInRight z-depth-3 d-print-none" onclick="topFunction()" id="myBtn" title="Go to top">#}
+{#        <i class="fas fa-chevron-up"></i>#}
+{#        Top#}
+{#      </button>#}
     <script type="text/javascript" src="{{ url_for('static', filename='runtime.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='polyfills.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='scripts.js') }}"></script>
