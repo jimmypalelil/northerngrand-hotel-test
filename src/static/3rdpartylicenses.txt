@@ -567,6 +567,8 @@ MIT
 
 @angular/material/radio
 
+@angular/material/progress-bar
+
 @angular/material/select
 
 core-js
