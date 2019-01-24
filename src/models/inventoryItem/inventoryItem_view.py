@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, json, request, redirect
+from flask import Blueprint, render_template, json, request, jsonify
 from bson.json_util import dumps
 from src.common.database import Database
 from src.models.inventoryItem.inventoryItem import InventoryItem
@@ -12,23 +12,25 @@ inventory_bp = Blueprint('inventory_blueprint', __name__)
 def index():
     return render_template('inventory/inventory_home.html')
 
-@inventory_bp.route('/new_item', methods=['GET', 'POST'])
+@inventory_bp.route('/newItem', methods=['POST'])
 def new_item():
-    item_name = request.form['item_name'].strip()
-    laundry = float(request.form['laundry'])
-    lock_up = float(request.form['lock_up'])
-    second = float(request.form['second'])
-    third = float(request.form['third'])
-    fourth = float(request.form['fourth'])
-    fifth = float(request.form['fifth'])
-    sixth = float(request.form['sixth'])
-    par_stock = float(request.form['par_stock'])
-    cost_per_item = float(request.form['cost_per_item'])
-    par_25 = float(request.form['par_25'])
-    type = request.form['type']
+    item = request.json
+    item_name = item['name'].strip()
+    laundry = float(item['laundry'])
+    lock_up = float(item['lock_up'])
+    second = float(item['second'])
+    third = float(item['third'])
+    fourth = float(item['fourth'])
+    fifth = float(item['fifth'])
+    sixth = float(item['sixth'])
+    par_stock = float(item['par_stock'])
+    cost_per_item = float(item['cost_per_item'])
+    par_25 = float(item['par_25'])
+    type = item['type']
+    print(type)
     InventoryItem(item_name, laundry, lock_up, second, third, fourth,
                   fifth, sixth, par_stock, cost_per_item, par_25, type).insert()
-    return redirect('/inventory#!/inventorylist/' + type)
+    return jsonify({'text': "Item Added Successfully!!!"})
 
 @inventory_bp.route('/delete/<id>', methods=['POST'])
 def delete(id):
@@ -42,8 +44,8 @@ def edit():
     return ''
 
 @inventory_bp.route('/inventoryList/')
-def inventoryList():
-    return dumps(Database.DATABASE['inventory'].find())
+def inventory_list():
+    return dumps(InventoryItem.get_inventory_items())
 
 @inventory_bp.route('/inventorylist')
 def inventorylist():

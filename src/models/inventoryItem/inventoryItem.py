@@ -2,6 +2,7 @@ import uuid
 
 from src.common.database import Database
 
+collection = 'inventory'
 
 class InventoryItem(object):
     def __init__(self, item_name, laundry, lock_up, second, third, fourth, fifth, sixth, par_stock, cost_per_item, par_25, type, total_count= None, total_cost=None, cat=None, _id=None):
@@ -56,3 +57,14 @@ class InventoryItem(object):
     @classmethod
     def remove(cls,id):
         Database.remove('inventory', {"_id": id})
+
+    @classmethod
+    def get_inventory_items(cls):
+        pipeline = [{
+            "$group": {
+                "_id": "$type",
+                "items": {"$push": "$$ROOT"}
+            }
+        }]
+        return_data = Database.DATABASE[collection].aggregate(pipeline)
+        return return_data

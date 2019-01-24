@@ -3,6 +3,7 @@ from flask_cors import CORS
 
 from src.common.database import Database
 from src.models.Inspection.inspection_views import inspection_bp
+from src.models.inventoryItem.inventoryItem_view import inventory_bp
 from src.models.item.item_view import item_bp
 
 from src.models.views import view_bp
@@ -21,6 +22,7 @@ app.register_blueprint(view_bp)
 app.register_blueprint(user_bp, url_prefix='/auth')
 app.register_blueprint(item_bp, url_prefix="/lostAndFound")
 app.register_blueprint(inspection_bp, url_prefix="/inspection")
+app.register_blueprint(inventory_bp, url_prefix="/inventory")
 
 if __name__ == '__main__':
     app.run(debug=True)
