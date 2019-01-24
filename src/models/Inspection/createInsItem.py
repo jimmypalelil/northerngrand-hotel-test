@@ -9,7 +9,7 @@ Database.go()
 
 
 def create_ins_items():
-    items =  [["microwave", "front room"], ["drawers menu", "front room"], ["robe", "washroom"]]
+    items = [["hangers", "front room"]]
 
     for item in items:
         InspectionItem.insert(item[0], item[1])
