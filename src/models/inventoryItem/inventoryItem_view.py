@@ -15,7 +15,7 @@ def index():
 @inventory_bp.route('/newItem', methods=['POST'])
 def new_item():
     item = request.json
-    item_name = item['name'].strip()
+    item_name = item['item_name'].strip()
     laundry = float(item['laundry'])
     lock_up = float(item['lock_up'])
     second = float(item['second'])
@@ -32,16 +32,16 @@ def new_item():
                   fifth, sixth, par_stock, cost_per_item, par_25, type).insert()
     return jsonify({'text': "Item Added Successfully!!!"})
 
-@inventory_bp.route('/delete/<id>', methods=['POST'])
+@inventory_bp.route('/deleteItem/<id>', methods=['GET'])
 def delete(id):
     InventoryItem.remove(id)
-    return dumps(Database.DATABASE['inventory'].find())
+    return jsonify({'text': "Item Was Deleted Successfully!!!"})
 
-@inventory_bp.route('/edit', methods=['GET','POST'])
+@inventory_bp.route('/editItem', methods=['GET','POST'])
 def edit():
     data = json.loads(request.data)
     InventoryItem.update(data['_id'], data)
-    return ''
+    return jsonify({'text': "Item Was Updated Successfully!!!"})
 
 @inventory_bp.route('/inventoryList/')
 def inventory_list():
