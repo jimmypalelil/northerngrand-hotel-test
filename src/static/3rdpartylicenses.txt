@@ -538,6 +538,8 @@ THE SOFTWARE.
 
 @angular/material/datepicker
 
+@angular/material/bottom-sheet
+
 @angular/material/tooltip
 
 @angular/material/snack-bar
@@ -561,9 +563,9 @@ MIT
 
 @angular/material/menu
 
-@angular/material/form-field
-
 @angular/material/expansion
+
+@angular/material/form-field
 
 @angular/material/radio
 
