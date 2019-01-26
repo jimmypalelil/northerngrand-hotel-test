@@ -65,9 +65,15 @@ def edit(id):
 
 
 @item_bp.route('/updateItem', methods=['POST'])
-def editReturn():
+def editLost():
     item = request.json
     Item.update(item['_id'], item)
+    return jsonify({'text': 'ITEM WAS UPDATED SUCCESSFULLY'})
+
+@item_bp.route('/updateReturnedItem', methods=['POST'])
+def editReturned():
+    item = request.json
+    ReturnedItem.update(item['_id'], item)
     return jsonify({'text': 'ITEM WAS UPDATED SUCCESSFULLY'})
 
 @item_bp.route('/undoReturn', methods=['POST'])
