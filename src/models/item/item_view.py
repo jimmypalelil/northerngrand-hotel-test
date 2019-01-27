@@ -46,15 +46,15 @@ def returnItem():
     return jsonify({'text': 'Item was Successfully Added To Returned List'})
 
 
-@item_bp.route('/deleteLostItem/<id>', methods=['GET', 'POST'])
+@item_bp.route('/deleteLostItem/<id>', methods=['GET'])
 def deleteLostItem(id):
     Item.remove(id)
     return jsonify({'text': 'ITEM DELETED SUCCESSFULLY'})
 
-@item_bp.route('/deleteReturnedItem/<id>', methods=['GET', 'POST'])
+@item_bp.route('/deleteReturnedItem/<id>', methods=['GET'])
 def deleteReturnedItem(id):
     ReturnedItem.remove(id)
-    return ReturnedItem.getAllReturned()
+    return jsonify({'text': 'ITEM DELETED SUCCESSFULLY'})
 
 
 @item_bp.route('/edit/<id>', methods=['GET','POST'])
