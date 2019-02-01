@@ -46,7 +46,3 @@ def edit():
 @inventory_bp.route('/inventoryList/')
 def inventory_list():
     return dumps(InventoryItem.get_inventory_items())
-
-@inventory_bp.route('/inventorylist')
-def inventorylist():
-    return render_template('inventory/inventoryList.html')
