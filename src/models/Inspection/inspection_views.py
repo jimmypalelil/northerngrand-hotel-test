@@ -32,8 +32,7 @@ def create_inspection_result():
     month = data[0]['month']
     year = data[0]['year']
     scores = data[1]
-    comments = data[2]
-    ins_emps = data[3]
+    ins_emps = data[2]
     total_score = 0
     count = 0
 
@@ -44,14 +43,14 @@ def create_inspection_result():
         InspectionEmployee(ins_id, emp['_id'], month, year).insert()
 
     for key in scores:
-        score = float(scores[key])
+        score = float(scores[key]['score'])
         if score >= 0:
             total_score += score
             count += 1
-        if key not in comments:
-            comment = ''
+        if 'comment' in scores[key]:
+            comment = scores[key]['comment']
         else:
-            comment = comments[key]
+            comment = ''
 
         InspectionScore(ins_id, key, month, year, score, comment).insert()
 
