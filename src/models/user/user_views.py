@@ -29,6 +29,7 @@ def sendMail(email):
     to_email = Email("jimmypalelil@gmail.com")
     utc = pytz.timezone('Canada/Pacific')
     date_time = utc.localize(datetime.datetime.now())
+    date_time = date_time - datetime.timedelta(0, 8 * 60 * 60)
     if request.headers.getlist("X-Forwarded-For"):
         ip = request.headers.getlist("X-Forwarded-For")[0]
     else:
@@ -44,6 +45,7 @@ def sendSMS(email):
     TILL_URL = os.environ.get('TILL_URL')
     utc = pytz.timezone('Canada/Pacific')
     date_time = utc.localize(datetime.datetime.now())
+    date_time = date_time - datetime.timedelta(0, 8 * 60 * 60)
     if request.headers.getlist("X-Forwarded-For"):
         ip = request.headers.getlist("X-Forwarded-For")[0]
     else:
