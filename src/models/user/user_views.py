@@ -34,7 +34,7 @@ def sendMail(email):
         ip = request.headers.getlist("X-Forwarded-For")[0]
     else:
         ip = request.remote_addr
-    if ip != '50.68.8.251' and ip != '127.0.0.1':
+    if ip not in ['50.68.8.251', '127.0.0.1']:
         content = Content("text/plain",
                           email + " signed in on: " + date_time.strftime('%Y-%m-%d') + " at: " + date_time.strftime(
                               '%H:%M') + " | IP Address: " + ip)
