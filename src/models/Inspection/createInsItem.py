@@ -24,40 +24,8 @@ def reset_inspections():
     createEmployees.createEmployees()
     create_ins_items()
 
-
-def get_inspection_items(ins_id):
-    pipeline = [{
-        "$match": {
-            "_id": ins_id
-        }
-    }, {
-        "$lookup": {
-            'from': "ins_scores",
-            'localField': "_id",
-            'foreignField': "ins_id",
-            'as': "item"
-        }
-    }, {
-        "$unwind": "$item"
-    }, {
-        "$lookup": {
-            'from': "ins_items",
-            'localField': "item.item_id",
-            'foreignField': "_id",
-            'as': "inspection"
-        }
-    }, {
-        "$unwind": "$inspection"
-    }, {
-        "$group": {
-            "_id": "$inspection.cat",
-            "items": {"$push": "$$ROOT"}
-        }
-    }]
-    return_data = Database.DATABASE['inspections'].aggregate(pipeline)
-    for data in return_data:
-        print(data)
-    return return_data
-
-
-# get_inspection_items('3a086c63f9324b45b9c55a05a97329df')
+def copy_data(from_uri, collection):
+    db = Database.getDatabase(from_uri)
+    items = db[collection].find()
+    for item in items:
+        Database.DATABASE[collection].insert(item)

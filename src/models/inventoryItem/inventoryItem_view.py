@@ -27,7 +27,6 @@ def new_item():
     cost_per_item = float(item['cost_per_item'])
     par_25 = float(item['par_25'])
     type = item['type']
-    print(type)
     InventoryItem(item_name, laundry, lock_up, second, third, fourth,
                   fifth, sixth, par_stock, cost_per_item, par_25, type).insert()
     return jsonify({'text': "Item Added Successfully!!!"})

@@ -12,6 +12,10 @@ class Database(object):
     Database.DATABASE = client.get_default_database()
 
   @staticmethod
+  def getDatabase(URI):
+    return pymongo.MongoClient(URI).get_default_database()
+
+  @staticmethod
   def find_one(collection, query):
     return Database.DATABASE[collection].find_one(query)
 
