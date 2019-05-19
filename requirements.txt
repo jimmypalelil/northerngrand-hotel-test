@@ -4,5 +4,6 @@ sendgrid
 requests
 pytz
 Gunicorn
+eventlet
 Flask-Cors
 Flask-SocketIO
