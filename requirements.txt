@@ -3,6 +3,6 @@ pymongo==3.7.1
 sendgrid
 requests
 pytz
-uwsgi
+Gunicorn
 Flask-Cors
 Flask-SocketIO

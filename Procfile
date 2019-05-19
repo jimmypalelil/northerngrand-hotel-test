@@ -1,1 +1,1 @@
-web: uwsgi uwsgi.ini
+web: gunicorn -k flask_sockets.worker src.app:app
