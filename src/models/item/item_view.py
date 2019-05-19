@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, json, request, redirect, session, url_for, jsonify
+from flask import Blueprint, render_template, json, request, redirect, jsonify
 from bson.json_util import dumps
+
+from src.main import socketio
 from src.common.database import Database
 from src.models.item.item import Item
 from src.models.item.returnedItem import ReturnedItem
@@ -12,7 +14,6 @@ import src.models.user.decorators as user_decorators
 
 item_bp = Blueprint('lost_and_found', __name__)
 
-
 @item_bp.route('/', methods=['GET','POST'])
 @user_decorators.requires_login
 def index():
@@ -20,7 +21,7 @@ def index():
 
 
 @item_bp.route('/new/<roomNo>/<itemDesc>/<date>', methods=['GET', 'POST'])
-def reportNew(roomNo, itemDesc, date):
+def report_new(roomNo, itemDesc, date):
     date = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S.%fZ')
     date = datetime.strftime(date, '%Y-%m-%d')
     Item(roomNo, itemDesc, date).insert()
@@ -28,14 +29,17 @@ def reportNew(roomNo, itemDesc, date):
 
 
 @item_bp.route('/new', methods=['GET', 'POST'])
-def addnewItem():
-  item = request.json
-  Item(item['room_number'], item['item_description'], item['date']).insertOne()
-  return jsonify({'text': 'Item was Added Successfully'})
+def add_new_item():
+    data = (json.loads(request.data))
+    item = data[0]
+    id = Item(item['room_number'], item['item_description'], item['date']).insertOne()
+    id = id.inserted_id
+    socketio.emit('newItemAdded', [dumps(Database.find_one('losts', {"_id": id})), data[1]])
+    return jsonify({'text': 'Item was Added Successfully'})
 
 
 @item_bp.route('/returnItem', methods=['POST'])
-def returnItem():
+def return_item():
     item = request.json
     id = item['_id']
     guestName = item['guest_name']
@@ -46,9 +50,13 @@ def returnItem():
     return jsonify({'text': 'Item was Successfully Added To Returned List'})
 
 
-@item_bp.route('/deleteLostItem/<id>', methods=['GET'])
-def deleteLostItem(id):
+@item_bp.route('/deleteLostItem', methods=['POST'])
+def deleteLostItem():
+    data = (json.loads(request.data))
+    print(data)
+    id = data[0]
     Item.remove(id)
+    socketio.emit('deletedLostItem', [id, data[1]])
     return jsonify({'text': 'ITEM DELETED SUCCESSFULLY'})
 
 @item_bp.route('/deleteReturnedItem/<id>', methods=['GET'])
@@ -68,6 +76,7 @@ def edit(id):
 def editLost():
     item = request.json
     Item.update(item['_id'], item)
+    socketio.emit('updatedList', item)
     return jsonify({'text': 'ITEM WAS UPDATED SUCCESSFULLY'})
 
 @item_bp.route('/updateReturnedItem', methods=['POST'])
@@ -97,9 +106,9 @@ def sendMail(item):
     subject = 'Item Request from Front Desk'
     to_email = Email("housekeeping@northerngrand.ca", "jimmypalelil@gmail.com")
     msg = 'Front Desk has requested the following Item:     ' + \
-        'Item Description: ' + item.item_description + \
-        '|  Room No.: ' + item.room_number + \
-        '|  Date Found: ' + item.date
+          'Item Description: ' + item.item_description + \
+          '|  Room No.: ' + item.room_number + \
+          '|  Date Found: ' + item.date
     content = Content("text/plain", msg)
     mail = Mail(from_email, subject, to_email, content)
     sg.client.mail.send.post(request_body=mail.get())

@@ -2,24 +2,35 @@ from flask import Blueprint, request, render_template, redirect, make_response, 
 from bson.json_util import dumps
 
 from src.common.database import Database
+from src.main import socketio
 
 view_bp = Blueprint('view_blueprint', __name__)
-
 
 @view_bp.route('/')
 def home():
     return render_template('index.html')
+
 
 @view_bp.route('/list/<type>/<year>/<month>')
 def returnList(type, year, month):
     rooms = Database.find(type, {'year': year, 'month': month})
     return dumps(rooms)
 
-@view_bp.route('/list/lost/<type>')
-def returnLostItems(type):
-    if(type == 'lostItems'):
+
+@socketio.on('getLostList')
+def return_lost_items(type):
+    if type == 'lostItems':
         return dumps(Database.findAll('losts'))
     return dumps(Database.findAll('returned'))
+
+
+
+@view_bp.route('/list/lost/<type>')
+def returnLostItems(type):
+    if type == 'lostItems':
+        return dumps(Database.findAll('losts'))
+    return dumps(Database.findAll('returned'))
+
 
 @view_bp.route('/list/roomStatusChange', methods=['POST'])
 def changeStatus():
