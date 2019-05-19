@@ -31,6 +31,7 @@ def report_new(roomNo, itemDesc, date):
 @item_bp.route('/new', methods=['GET', 'POST'])
 def add_new_item():
     data = (json.loads(request.data))
+    print(data)
     item = data[0]
     id = Item(item['room_number'], item['item_description'], item['date']).insertOne()
     id = id.inserted_id
@@ -53,11 +54,11 @@ def return_item():
 @item_bp.route('/deleteLostItem', methods=['POST'])
 def deleteLostItem():
     data = (json.loads(request.data))
-    print(data)
     id = data[0]
     Item.remove(id)
     socketio.emit('deletedLostItem', [id, data[1]])
     return jsonify({'text': 'ITEM DELETED SUCCESSFULLY'})
+
 
 @item_bp.route('/deleteReturnedItem/<id>', methods=['GET'])
 def deleteReturnedItem(id):
@@ -72,21 +73,31 @@ def edit(id):
     return redirect('/lostAndFound/')
 
 
-@item_bp.route('/updateItem', methods=['POST'])
-def editLost():
-    item = request.json
+@socketio.on('updateLostItem')
+def handle_update_lost_item(data):
+    item = data[0]
     Item.update(item['_id'], item)
-    socketio.emit('updatedList', item)
+    socketio.emit('updatedList', [item, data[1]])
+
+
+@item_bp.route('/updateItem', methods=['POST'])
+def edit_lost():
+    data = (json.loads(request.data))
+    item = data[0]
+    Item.update(item['_id'], item)
+    socketio.emit('updatedList', [item, data[1]])
     return jsonify({'text': 'ITEM WAS UPDATED SUCCESSFULLY'})
 
+
 @item_bp.route('/updateReturnedItem', methods=['POST'])
-def editReturned():
+def edit_returned():
     item = request.json
     ReturnedItem.update(item['_id'], item)
     return jsonify({'text': 'ITEM WAS UPDATED SUCCESSFULLY'})
 
+
 @item_bp.route('/undoReturn', methods=['POST'])
-def undoReturn():
+def undo_return():
     item = request.json
     ReturnedItem.deleteReturn(item['_id'])
     return jsonify({'text': 'Item has been Successfully placed back in Lost & Found'})
@@ -96,11 +107,11 @@ def undoReturn():
 def email():
     data = request.json
     item = Item.get_by_item_id(data['_id'])
-    sendMail(item)
+    send_mail(item)
     return jsonify({'text': 'Jennfier has been notified about the request'})
 
 
-def sendMail(item):
+def send_mail(item):
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("reservations@northerngrand.ca")
     subject = 'Item Request from Front Desk'
