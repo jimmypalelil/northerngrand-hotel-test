@@ -14,7 +14,7 @@ def login():
         password = json_data['password']
         if User.is_login_valid(email, password):
             session['email'] = email
-            if (email == 'reservations@northerngrand.ca' or email == 'housekeeping@northerngrand.ca'):
+            if email == 'reservations@northerngrand.ca' or email == 'housekeeping@northerngrand.ca':
                 sendMail(email)
             return jsonify({'email': email})
         else:
@@ -23,7 +23,7 @@ def login():
 
 
 def sendMail(email):
-    sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
+    sg = sendgrid.SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("info@northerngrand.ca")
     subject = email + ": Signin INFO"
     to_email = Email("jimmypalelil@gmail.com")
@@ -34,14 +34,14 @@ def sendMail(email):
         ip = request.headers.getlist("X-Forwarded-For")[0]
     else:
         ip = request.remote_addr
-    if ip not in ['50.68.8.251', '127.0.0.1']:
+    # if ip not in ['50.68.8.251', '127.0.0.1']:
         content = Content("text/plain",
                           email + " signed in on: " + date_time.strftime('%Y-%m-%d') + " at: " + date_time.strftime(
                               '%H:%M') + " | IP Address: " + ip)
         mail = Mail(from_email, subject, to_email, content)
         response = sg.client.mail.send.post(request_body=mail.get())
-    else:
-        print(ip)
+    # else:
+    #     print(ip)
 
 
 def sendSMS(email):
