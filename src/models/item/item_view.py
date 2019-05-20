@@ -31,7 +31,6 @@ def report_new(roomNo, itemDesc, date):
 @item_bp.route('/new', methods=['GET', 'POST'])
 def add_new_item():
     data = (json.loads(request.data))
-    print(data)
     item = data[0]
     id = Item(item['room_number'], item['item_description'], item['date']).insertOne()
     id = id.inserted_id
@@ -41,13 +40,16 @@ def add_new_item():
 
 @item_bp.route('/returnItem', methods=['POST'])
 def return_item():
-    item = request.json
+    data = (json.loads(request.data))
+    print(data)
+    item = data[0]
     id = item['_id']
     guestName = item['guest_name']
     returnedBy = item['returned_by']
     returnDate = item['return_date']
     comments = item['comments']
     ReturnedItem.createNewReturn(id, guestName, returnedBy, returnDate, comments)
+    socketio.emit('returnedItem', [id, data[1]])
     return jsonify({'text': 'Item was Successfully Added To Returned List'})
 
 

@@ -29,3 +29,5 @@ def copy_data(from_uri, collection):
     items = db[collection].find()
     for item in items:
         Database.DATABASE[collection].insert(item)
+
+
