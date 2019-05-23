@@ -25,7 +25,8 @@ class Chat(object):
             "to_email": self.to_email,
             "from_email": self.from_email,
             "msg": self.msg,
-            "date": self.date
+            "date": self.date,
+            "_id": self._id
         }
 
     @staticmethod
@@ -36,26 +37,6 @@ class Chat(object):
     def get_chats_by_number(n):
         return Database.DATABASE[collection].aggregate([{'$sort': {'date': -1}}, {'$limit': n}])
 
-    @staticmethod
-    def check_for_duplicate(email,password):
-        search_result = Database.find_one('users', {'email': email, 'password': password})
-        if search_result is not None:
-            return True
-        else:
-            return False
-
-    @staticmethod
-    def is_login_valid(email, password):
-        search_result = Database.find_one('users', {'email': email, "password": password})
-        if search_result is not None:
-            return True
-        else:
-            return False
-
     @classmethod
-    def return_chat_for_email(cls, email):
-        return cls(**Database.find_one('users', {'email': email}))
-
-    @staticmethod
-    def remove_admin_chat():
-        Database.remove(collection, {'from': 'jimmypalelil@gmail.com'})
+    def remove_msg(cls, id):
+        Database.remove('chats', {'_id': id})
