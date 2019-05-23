@@ -18,7 +18,7 @@ class Chat(object):
         Chat(to_email, from_email, msg, date).insert_chat()
 
     def insert_chat(self):
-        return Database.insert(collection, self.json())
+        return Database.insertOne(collection, self.json())
 
     def json(self):
         return {

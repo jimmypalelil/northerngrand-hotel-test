@@ -1,6 +1,5 @@
 from flask import Blueprint
 from bson.json_util import dumps
-
 from src.main import socketio
 from src.models.chat.chat import Chat
 
@@ -20,7 +19,7 @@ def handle_new_msg(chat):
     msg = chat['msg']
     date = chat['date']
     id = Chat(to_email,from_email,msg,date).insert_chat()
-    chat['_id'] = id
+    chat['_id'] = id.inserted_id
     socketio.emit('newMsg', chat)
 
 
