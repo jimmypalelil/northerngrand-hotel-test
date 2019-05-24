@@ -40,3 +40,10 @@ class Chat(object):
     @classmethod
     def remove_msg(cls, id):
         Database.remove('chats', {'_id': id})
+
+    @classmethod
+    def get_chats_by_skips(cls, count):
+        count = int(count)
+        skip_count = count * 50
+        print(skip_count)
+        return Database.DATABASE[collection].aggregate([{'$sort': {'date': -1}}, {'$limit': 50}, {'$skip': skip_count}])

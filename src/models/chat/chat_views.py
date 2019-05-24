@@ -12,6 +12,12 @@ def get_initial_msgs():
     return dumps(msgs)
 
 
+@chat_bp.route('/getMoreMsgs/<count>', methods=['GET'])
+def get_more_msgs(count):
+    msgs = Chat.get_chats_by_skips(count)
+    return dumps(msgs)
+
+
 @socketio.on('newMsg')
 def handle_new_msg(chat):
     to_email = chat['to_email']
@@ -20,7 +26,8 @@ def handle_new_msg(chat):
     date = chat['date']
     id = Chat(to_email,from_email,msg,date).insert_chat()
     chat['_id'] = id.inserted_id
-    socketio.emit('newMsg', chat)
+    socketio.emit('newMsg', chat, include_self=False)
+    return id.inserted_id
 
 
 @socketio.on('deleteMsg')
