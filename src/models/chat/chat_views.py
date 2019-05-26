@@ -35,4 +35,5 @@ def handle_del_msg(data):
     _id = data['_id']
     email = data['email']
     Chat.remove_msg(_id)
-    socketio.emit('deletedMsg', {'_id': _id, 'email': email})
+    socketio.emit('deletedMsg', {'_id': _id, 'email': email}, include_self=False)
+    return 'success'

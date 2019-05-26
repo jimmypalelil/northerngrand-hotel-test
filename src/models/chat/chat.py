@@ -43,7 +43,6 @@ class Chat(object):
 
     @classmethod
     def get_chats_by_skips(cls, count):
-        count = int(count)
-        skip_count = count * 50
+        skip_count = int(count) + 50
         print(skip_count)
-        return Database.DATABASE[collection].aggregate([{'$sort': {'date': -1}}, {'$limit': 50}, {'$skip': skip_count}])
+        return Database.DATABASE[collection].aggregate([{'$sort': {'date': -1}}, {'$skip': skip_count}, {'$limit': 50}])

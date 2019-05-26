@@ -24,10 +24,20 @@ def reset_inspections():
     createEmployees.createEmployees()
     create_ins_items()
 
-def copy_data(from_uri, collection):
+
+def copy_data(from_uri, collection_to_copy):
     db = Database.getDatabase(from_uri)
-    items = db[collection].find()
+    items = db[collection_to_copy].find()
+    Database.DATABASE[collection_to_copy].drop()
     for item in items:
-        Database.DATABASE[collection].insert(item)
+        Database.DATABASE[collection_to_copy].insert(item)
 
 
+def get_chats_by_skips(count):
+    skip_count = int(count) + 50
+    print(skip_count)
+    data = Database.DATABASE['chats'].aggregate([{'$sort': {'date': -1}}, {'$skip': skip_count}, {'$limit': 50}])
+    print(dumps(data))
+
+
+get_chats_by_skips(120)
