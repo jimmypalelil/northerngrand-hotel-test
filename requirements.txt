@@ -7,4 +7,3 @@ Gunicorn
 eventlet
 Flask-Cors
 Flask-SocketIO
-bson
