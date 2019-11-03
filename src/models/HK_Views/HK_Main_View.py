@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template
 from bson.json_util import dumps
-from datetime import datetime
 
 from src.common.database import Database
 
@@ -14,5 +13,5 @@ def trialList():
 
 @hk_bp.route('/pyList/<type>/<year>/<month>', methods=['GET'])
 def returnList(type, year, month):
-    rooms = Database.find(type, {"month" : month, "year": year})
+    rooms = Database.find(type, {"month": month, "year": year})
     return dumps(rooms)

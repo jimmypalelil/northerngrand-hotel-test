@@ -1,6 +1,7 @@
 import uuid
 from src.common.database import Database
 
+
 class room(object):
     def __init__(self, room_number, type, _id = None):
         self.room_number = room_number
@@ -9,9 +10,9 @@ class room(object):
 
     def json(self):
         return {
-            "room_number": self.room_number,
+            "room": self.room_number,
             "type": self.type,
-            "_id": self._id
+            "_id": self.room_number
         }
 
     def save_to_mongo(self):
@@ -20,7 +21,6 @@ class room(object):
     @classmethod
     def get_by_id(cls, id):
         return cls(**Database.find_one('rooms', {"_id": id}))
-
 
     def update(self, id):
         Database.update('rooms', {'_id': id}, self.json())

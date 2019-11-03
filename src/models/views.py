@@ -24,7 +24,6 @@ def return_lost_items(type):
     return dumps(Database.findAll('returned'))
 
 
-
 @view_bp.route('/list/lost/<type>')
 def returnLostItems(type):
     if type == 'lostItems':

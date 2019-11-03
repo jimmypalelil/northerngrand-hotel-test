@@ -1,6 +1,6 @@
 import gc
 from src.common.database import Database
-from src.models.HK_Models.room import room
+from src.models.HK_Models.room.room import room
 
 
 room_200=room(200,'K')
