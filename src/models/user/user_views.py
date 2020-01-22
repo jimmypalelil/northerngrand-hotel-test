@@ -14,15 +14,13 @@ def login():
         password = json_data['password']
         if User.is_login_valid(email, password):
             session['email'] = email
-            if email == 'reservations@northerngrand.ca' or email == 'housekeeping@northerngrand.ca':
-                sendMail(email)
             return jsonify({'email': email})
         else:
             return "You entered the wrong email/password"
     return redirect('/')
 
 
-def sendMail(email):
+def send_mail(email):
     sg = sendgrid.SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("info@northerngrand.ca")
     subject = email + ": Signin INFO"
